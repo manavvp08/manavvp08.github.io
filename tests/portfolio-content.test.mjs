@@ -18,5 +18,14 @@ test("featured work uses real, uniquely linked projects", () => {
 });
 
 test("published content contains no resume placeholders", () => {
-  assert.doesNotMatch(JSON.stringify(portfolio), /\[[^\]]+\]/);
+  const strings = [];
+  const collectStrings = (value) => {
+    if (typeof value === "string") strings.push(value);
+    else if (value && typeof value === "object") {
+      Object.values(value).forEach(collectStrings);
+    }
+  };
+
+  collectStrings(portfolio);
+  assert.ok(strings.every((value) => !/\[[^\]]+\]/.test(value)));
 });
