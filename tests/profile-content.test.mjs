@@ -50,3 +50,20 @@ test("GitHub Pages static export is configured", () => {
   assert.match(workflow, /NEXT_PUBLIC_SITE_URL: https:\/\/manavvp08\.github\.io\s/);
   assert.doesNotMatch(workflow, /NEXT_PUBLIC_BASE_PATH|\/product-portfolio/);
 });
+
+test("Writing is available for Manav's future articles", () => {
+  assert.equal(existsSync("app/writing/page.tsx"), true);
+
+  const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
+  const sidebar = readFileSync("app/components/sidebar.tsx", "utf8");
+  const mobileDock = readFileSync("app/components/mobile-dock.tsx", "utf8");
+  const commandPalette = readFileSync("app/components/command-palette.tsx", "utf8");
+  const sitemap = readFileSync("app/sitemap.ts", "utf8");
+
+  assert.match(navigation, /label:\s*["']Writing["']/);
+  assert.match(navigation, /href:\s*["']\/writing["']/);
+  assert.match(sidebar, /writingNav/);
+  assert.match(mobileDock, /writingNav/);
+  assert.match(commandPalette, /writingNav/);
+  assert.match(sitemap, /\$\{SITE_URL\}\/writing/);
+});
