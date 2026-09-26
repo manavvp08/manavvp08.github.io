@@ -45,7 +45,7 @@ export default function CaseStudyBlock() {
                 {c.image ? (
                   <Image
                     src={c.image}
-                    alt={`${c.title} — ${c.kind} case study by Siddharth Singh`}
+                    alt={`${c.title} — ${c.kind} case study by Manav Purswani`}
                     fill
                     sizes="(max-width: 768px) 100vw, 520px"
                     className="object-cover"

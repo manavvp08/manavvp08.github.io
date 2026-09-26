@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { profile, socials, links } from "../lib/data";
-import { navItems, blogsNav, SECTION_IDS } from "./nav-items";
+import { navItems, SECTION_IDS } from "./nav-items";
 import { useScrollSpy, scrollToSection } from "./use-scroll-spy";
 import Button from "./button";
 import LocalTime from "./local-time";
@@ -29,12 +27,11 @@ function NavList() {
   const spy = useScrollSpy(SECTION_IDS);
   const go = useGoToSection();
   const active = pathname === "/" ? spy : "";
-  const onBlogs = pathname.startsWith("/blogs");
 
   return (
     <nav aria-label="Primary" className="flex flex-col gap-0.5">
       {navItems.map((item) => {
-        const on = active === item.id && !onBlogs;
+        const on = active === item.id;
         return (
           <button
             key={item.id}
@@ -66,36 +63,6 @@ function NavList() {
           </button>
         );
       })}
-
-      <span className="my-2 ml-[30px] h-px w-7 bg-border" />
-
-      <Link
-        href="/blogs"
-        className="group relative flex items-center gap-3.5 py-1.5 text-left"
-        aria-current={onBlogs ? "true" : undefined}
-      >
-        <span
-          className={`absolute -left-8 h-6 w-[3px] rounded-r-full bg-accent transition-all duration-300 ${
-            onBlogs ? "opacity-100" : "opacity-0"
-          }`}
-        />
-        <span
-          className={`flex w-4 shrink-0 items-center transition-colors ${
-            onBlogs ? "text-accent" : "text-faint group-hover:text-muted"
-          }`}
-        >
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </span>
-        <span
-          className={`font-display text-[23px] font-semibold leading-tight tracking-tight transition-all duration-300 ${
-            onBlogs
-              ? "text-fg"
-              : "text-faint group-hover:translate-x-0.5 group-hover:text-muted"
-          }`}
-        >
-          {blogsNav.label}
-        </span>
-      </Link>
     </nav>
   );
 }
@@ -110,14 +77,8 @@ export default function Sidebar() {
             onClick={() => go("intro")}
             className="group flex items-center gap-3.5 text-left"
           >
-            <span className="relative h-12 w-12 shrink-0">
-              <Image
-                src="/profile.jpg"
-                alt="Siddharth Singh"
-                fill
-                sizes="48px"
-                className="rounded-full border border-border object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
-              />
+            <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border border-border bg-surface-2 font-display text-sm font-semibold text-fg">
+              MP
               <span className="absolute bottom-0 right-0 grid h-3.5 w-3.5 place-items-center rounded-full border-2 border-bg bg-bg">
                 <span className="pulse-dot h-2 w-2 rounded-full bg-success" />
               </span>
@@ -127,7 +88,7 @@ export default function Sidebar() {
                 {profile.name}
               </span>
               <span className="mt-1.5 block text-[12.5px] leading-tight text-muted">
-                Full-stack engineer
+                {profile.role}
               </span>
             </span>
           </button>
@@ -138,18 +99,18 @@ export default function Sidebar() {
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-3">
             <span className="text-[12.5px] leading-relaxed text-faint">
-              Open to work, worldwide.
+              Open to product roles.
             </span>
             <ThemeToggle />
           </div>
           <Button
-            href={links.resumeUrl}
+            href={links.linkedInUrl}
             external
             variant="secondary"
             size="sm"
             className="w-full"
           >
-            Resume <Download className="h-4 w-4 text-faint" />
+            LinkedIn <ArrowUpRight className="h-4 w-4 text-faint" />
           </Button>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {socials.map((s) => (
@@ -181,7 +142,7 @@ export default function Sidebar() {
           onClick={() => go("intro")}
           className="font-display text-[17px] font-semibold tracking-tight text-fg"
         >
-          Siddharth Singh
+          {profile.name}
         </button>
         <NavStatus />
       </header>

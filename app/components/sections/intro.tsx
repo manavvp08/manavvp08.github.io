@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import Reveal from "../reveal";
 import CountUp from "../count-up";
 import Button from "../button";
@@ -7,30 +6,46 @@ import GithubHeatmap from "../github-heatmap";
 import { Section } from "./section-shell";
 import { profile, facts, links } from "../../lib/data";
 
+function ProfilePanel({ mobile = false }: { mobile?: boolean }) {
+  return (
+    <figure
+      className={`group relative overflow-hidden border border-border bg-bg-2 ${
+        mobile ? "-mx-5 -mt-10 mb-8 aspect-[4/5]" : "aspect-[4/5] rounded-2xl"
+      }`}
+    >
+      <div className="bg-grid absolute inset-0" />
+      <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
+      <div className="absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+      <div className="absolute inset-0 grid place-items-center">
+        <div className="grid h-40 w-40 place-items-center rounded-full border border-border-strong bg-surface/80 font-display text-6xl font-semibold tracking-[-0.08em] text-fg shadow-2xl backdrop-blur sm:h-48 sm:w-48 sm:text-7xl">
+          MP
+        </div>
+      </div>
+      <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
+        <div>
+          <div className="font-display text-sm text-fg">{profile.name}</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+            Business systems → Product
+          </div>
+        </div>
+        <span className="font-mono text-[10px] text-faint">IN · MUMBAI</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function Intro() {
   return (
     <Section id="intro" className="pt-8 pb-16 sm:pt-14 sm:pb-32">
       <div className="lg:hidden">
-        <div className="relative -mx-5 -mt-10 mb-8 aspect-[4/5] overflow-hidden sm:aspect-[16/9]">
-          <Image
-            src="/profile.jpg"
-            alt="Siddharth Singh, full-stack engineer"
-            fill
-            sizes="100vw"
-            className="duotone object-cover object-top"
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-28"
-            style={{ background: "linear-gradient(to top, var(--color-bg), transparent)" }}
-          />
-        </div>
+        <ProfilePanel mobile />
       </div>
 
       <Reveal className="hidden lg:block">
         <div className="flex flex-wrap items-center gap-2.5 text-[13px] text-muted">
           <span className="inline-flex items-center gap-2 text-fg">
             <span className="pulse-dot h-2 w-2 rounded-full bg-success" />
-            Available for work, worldwide
+            Open to Product Analyst and APM opportunities
           </span>
           <span className="text-border-strong">/</span>
           <span>{profile.location}</span>
@@ -41,66 +56,43 @@ export default function Intro() {
         <div>
           <Reveal>
             <h1 className="font-display text-[clamp(2.1rem,4.6vw,3.1rem)] leading-[1.08] tracking-tight text-balance">
-             Hey, I'm Siddharth, a full-stack AI engineer
+              Hey, I&apos;m Manav — a Business Systems Analyst with a product lens.
             </h1>
           </Reveal>
 
           <Reveal delay={140}>
-            <p className="mt-5 max-w-md text-[15.5px] leading-relaxed text-muted">
-               I build production-ready, performant web applications from the ground up, for real-world use, with strong backend logic and carefully crafted user interfaces. </p>
+            <p className="mt-5 max-w-lg text-[15.5px] leading-relaxed text-muted">
+              I turn ambiguous business problems into prioritized requirements, measurable
+              decisions, and shipped solutions. I&apos;m building toward Product Analytics
+              and Product Management.
+            </p>
           </Reveal>
 
           <Reveal delay={200}>
             <div className="mt-7 flex flex-wrap items-center gap-2.5">
-              <Button href={links.resumeUrl} external variant="primary">
-                Resume <Download aria-hidden className="h-4 w-4 opacity-80" />
+              <Button href={links.linkedInUrl} external variant="primary">
+                View LinkedIn <ArrowRight aria-hidden className="h-4 w-4" />
               </Button>
-              <Button href={links.calUrl} external variant="secondary">
-                Book a call <ArrowRight aria-hidden className="h-4 w-4" />
+              <Button href={`mailto:${profile.email}`} external variant="secondary">
+                Email me <Mail aria-hidden className="h-4 w-4" />
               </Button>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={120} className="hidden lg:block">
-          <figure className="group relative overflow-hidden rounded-2xl border border-border bg-bg-2">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src="/profile.jpg"
-                alt="Siddharth Singh, full-stack engineer"
-                fill
-                sizes="(max-width: 768px) 100vw, 420px"
-                className="duotone object-cover object-top"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(5,5,7,0.9) 0%, rgba(5,5,7,0.2) 34%, rgba(5,5,7,0) 58%)",
-                }}
-              />
-            </div>
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4">
-              <div>
-                <div className="font-display text-sm text-white">Siddharth Singh</div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-                  full-stack engineer
-                </div>
-              </div>
-              <span className="font-mono text-[10px] text-white/50">IN · 28.5°N</span>
-            </figcaption>
-          </figure>
+          <ProfilePanel />
         </Reveal>
       </div>
 
       <Reveal>
         <dl className="mt-14 grid grid-cols-2 gap-px border-y border-border bg-border sm:grid-cols-4">
-          {facts.map((f) => (
-            <div key={f.label} className="bg-bg px-4 py-5">
+          {facts.map((fact) => (
+            <div key={fact.label} className="bg-bg px-4 py-5">
               <dd className="font-display text-3xl font-semibold tracking-tight text-fg">
-                <CountUp to={f.to} prefix={f.prefix} suffix={f.suffix} />
+                <CountUp to={fact.to} prefix={fact.prefix} suffix={fact.suffix} />
               </dd>
-              <dt className="mt-1 text-[12px] leading-snug text-muted">{f.label}</dt>
+              <dt className="mt-1 text-[12px] leading-snug text-muted">{fact.label}</dt>
             </div>
           ))}
         </dl>
@@ -108,39 +100,26 @@ export default function Intro() {
 
       <Reveal>
         <div className="mt-12 grid gap-3 sm:grid-cols-2">
-          {profile.now.map((n) => (
+          {profile.now.map((item) => (
             <a
-              key={n.name}
-              href={n.href}
+              key={item.name}
+              href={item.href}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-border-strong hover:bg-surface-2"
             >
-              <span
-                className={`relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-border ${
-                  n.contain ? "bg-white" : "bg-bg-2"
-                }`}
-              >
-                <Image
-                  src={n.logo}
-                  alt={n.name}
-                  fill
-                  sizes="48px"
-                  className={n.contain ? "object-contain p-1.5" : "object-cover"}
-                />
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-border bg-bg-2 font-display text-lg font-semibold text-accent">
+                {item.mark}
               </span>
               <div className="min-w-0 flex-1">
                 <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">
-                  {n.label}
+                  {item.label}
                 </div>
-                <div className="mt-0.5 truncate font-display text-[17px] font-semibold tracking-tight text-fg">
-                  {n.name}
+                <div className="mt-0.5 font-display text-[17px] font-semibold tracking-tight text-fg">
+                  {item.name}
                 </div>
               </div>
-              <ArrowUpRight
-                aria-hidden
-                className="h-[18px] w-[18px] shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:text-fg"
-              />
+              <ArrowUpRight className="h-[18px] w-[18px] shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:text-fg" />
             </a>
           ))}
         </div>
@@ -148,7 +127,7 @@ export default function Intro() {
 
       <Reveal>
         <div className="mt-12">
-          <GithubHeatmap user="sidonweb" />
+          <GithubHeatmap user="manavvp08" />
         </div>
       </Reveal>
     </Section>

@@ -47,7 +47,7 @@ export default function AskChat({ bare = false }: { bare?: boolean }) {
     {
       id: 0,
       role: "assistant",
-      text: "Hey — I'm a small guide built from everything on this site: my projects, stack, experience, and how I work. Ask me anything and I'll answer with the sources to back it up.",
+      text: "Hey — I'm a guide to Manav's experience, impact, product direction, and projects. Ask a question and I'll point you to the relevant section.",
     },
   ]);
   const [input, setInput] = useState("");

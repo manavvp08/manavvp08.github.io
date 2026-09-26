@@ -23,6 +23,7 @@ export async function generateMetadata({
 
   const study = caseStudies.find((c) => c.slug === slug);
   if (study) {
+    const image = study.image ? new URL(study.image, SITE_URL).toString() : undefined;
     return {
       title: `${study.title} — ${study.kind} case study`,
       description: study.summary,
@@ -30,22 +31,23 @@ export async function generateMetadata({
       alternates: { canonical: url },
       openGraph: {
         type: "article",
-        title: `${study.title} · Case study · Siddharth Singh`,
+        title: `${study.title} · Case study · Manav Purswani`,
         description: study.tagline,
         url,
-        ...(study.image ? { images: [{ url: study.image, alt: `${study.title} preview` }] } : {}),
+        ...(image ? { images: [{ url: image, alt: `${study.title} preview` }] } : {}),
       },
       twitter: {
         card: "summary_large_image",
         title: study.title,
         description: study.tagline,
-        ...(study.image ? { images: [study.image] } : {}),
+        ...(image ? { images: [image] } : {}),
       },
     };
   }
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
+  const image = new URL(project.image, SITE_URL).toString();
   return {
     title: `${project.title} — ${project.kind}`,
     description: project.summary,
@@ -53,16 +55,16 @@ export async function generateMetadata({
     alternates: { canonical: url },
     openGraph: {
       type: "article",
-      title: `${project.title} · Siddharth Singh`,
+      title: `${project.title} · Manav Purswani`,
       description: project.tagline,
       url,
-      images: [{ url: project.image, alt: `${project.title} preview` }],
+      images: [{ url: image, alt: `${project.title} preview` }],
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description: project.tagline,
-      images: [project.image],
+      images: [image],
     },
   };
 }
@@ -73,11 +75,13 @@ export default async function WorkPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const work = [...caseStudies, ...projects];
+  const currentIndex = work.findIndex((item) => item.slug === slug);
+  const next = work[(currentIndex + 1) % work.length];
 
   const csIndex = caseStudies.findIndex((c) => c.slug === slug);
   if (csIndex !== -1) {
     const study = caseStudies[csIndex];
-    const next = caseStudies[(csIndex + 1) % caseStudies.length];
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "CreativeWork",
@@ -85,10 +89,10 @@ export default async function WorkPage({
       headline: study.tagline,
       description: study.summary,
       url: `${SITE_URL}/work/${study.slug}`,
-      ...(study.image ? { image: `${SITE_URL}${study.image}` } : {}),
+      ...(study.image ? { image: new URL(study.image, SITE_URL).toString() } : {}),
       keywords: study.stack.join(", "),
       dateCreated: String(study.year),
-      author: { "@type": "Person", name: "Siddharth Singh", url: SITE_URL },
+      author: { "@type": "Person", name: "Manav Purswani", url: SITE_URL },
     };
     return (
       <>
@@ -104,7 +108,6 @@ export default async function WorkPage({
   const index = projects.findIndex((p) => p.slug === slug);
   if (index === -1) notFound();
   const project = projects[index];
-  const next = projects[(index + 1) % projects.length];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -113,10 +116,10 @@ export default async function WorkPage({
     headline: project.title,
     description: project.summary,
     url: `${SITE_URL}/work/${project.slug}`,
-    image: `${SITE_URL}${project.image}`,
+    image: new URL(project.image, SITE_URL).toString(),
     keywords: project.stack.join(", "),
     dateCreated: String(project.year),
-    author: { "@type": "Person", name: "Siddharth Singh", url: SITE_URL },
+    author: { "@type": "Person", name: "Manav Purswani", url: SITE_URL },
   };
 
   return (
@@ -242,7 +245,7 @@ export default async function WorkPage({
       <div className="mt-14 border-t border-border pt-8">
         <Link href={`/work/${next.slug}`} className="group block">
           <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">
-            Next project
+            Next up
           </div>
           <div className="mt-2 flex items-center justify-between gap-4">
             <span className="font-display text-2xl font-semibold tracking-tight text-fg transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">

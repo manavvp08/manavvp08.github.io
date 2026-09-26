@@ -10,23 +10,23 @@ export default function Work() {
       <Kicker index="02" label="Work" />
       <Reveal delay={60}>
         <h2 className="mt-5 font-display text-[2rem] leading-[1.08] tracking-tight sm:text-[2.6rem]">
-          Here&apos;s what I&apos;ve built,
-          <br className="hidden sm:block" /> and what made each one hard.
+          Evidence, not just job titles.
+          <br className="hidden sm:block" /> Work tied to measurable outcomes.
         </h2>
       </Reveal>
 
       <Reveal delay={100}>
         <div className="mt-12 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
-          <span className="text-muted">Case studies</span>
+          <span className="text-muted">Case study</span>
           <span className="h-px w-5 bg-border" />
-          <span>the full story behind two</span>
+          <span>enterprise transformation</span>
         </div>
       </Reveal>
       <CaseStudyBlock />
 
       <Reveal delay={100}>
         <div className="mt-16 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
-          <span className="text-muted">Other projects</span>
+          <span className="text-muted">Product project</span>
           <span className="h-px w-5 bg-border" />
         </div>
       </Reveal>

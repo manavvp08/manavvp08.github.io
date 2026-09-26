@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const items = [
-  { kind: "status" as const, text: "Available for work" },
-  { kind: "location" as const, text: "Greater Noida, India" },
+  { kind: "status" as const, text: "Open to product roles" },
+  { kind: "location" as const, text: "Mumbai, India" },
 ];
 
 export default function NavStatus() {

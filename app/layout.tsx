@@ -1,60 +1,44 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import Sidebar from "./components/sidebar";
 import CommandPalette from "./components/command-palette";
 import MobileDock from "./components/mobile-dock";
 import AskWidget from "./components/ask-widget";
 import ScrollReset from "./components/scroll-reset";
 import { SITE_URL, structuredData } from "./lib/seo";
-import { getBlogPosts } from "./lib/posts";
 import { themeInitScript } from "./lib/theme";
 // @ts-ignore
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
 const description =
-  "I'm Siddharth Singh, a full-stack engineer in Greater Noida, India. I build fast, reliable real-time systems and AI tools with React, Next.js, TypeScript, Node.js and Kafka. Open to full-time roles and freelance.";
+  "Manav Purswani is a Business Systems Analyst at Deloitte, building toward Product Analytics and Product Management through data-driven decisions and measurable delivery.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Siddharth Singh — Full-stack Engineer in India | Real-time & AI",
-    template: "%s · Siddharth Singh",
+    default: "Manav Purswani — Business Systems Analyst → Product Analyst",
+    template: "%s · Manav Purswani",
   },
   description,
-  applicationName: "Siddharth Singh",
-  authors: [{ name: "Siddharth Singh", url: SITE_URL }],
-  creator: "Siddharth Singh",
-  publisher: "Siddharth Singh",
-  category: "technology",
+  applicationName: "Manav Purswani",
+  authors: [{ name: "Manav Purswani", url: SITE_URL }],
+  creator: "Manav Purswani",
+  publisher: "Manav Purswani",
+  category: "business",
   keywords: [
-    "Siddharth Singh",
-    "full-stack engineer",
-    "full-stack developer India",
-    "React developer",
-    "Next.js developer",
-    "TypeScript engineer",
-    "Node.js developer",
-    "real-time systems",
-    "distributed systems",
-    "Kafka",
-    "WebSockets",
-    "RAG",
-    "AI engineer",
-    "PostgreSQL",
-    "Greater Noida",
-    "hire software engineer India",
+    "Manav Purswani",
+    "Business Systems Analyst",
+    "Product Analyst",
+    "Associate Product Manager",
+    "Product Management",
+    "SQL",
+    "Data Analysis",
+    "Root Cause Analysis",
+    "Requirements Gathering",
+    "Product Analytics",
+    "Mumbai",
   ],
   alternates: {
     canonical: "/",
-    types: {
-      "application/rss+xml": "/rss.xml",
-    },
   },
   formatDetection: { email: false, telephone: false, address: false },
   robots: {
@@ -70,22 +54,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "profile",
-    firstName: "Siddharth",
-    lastName: "Singh",
-    username: "sidonweb",
-    title: "Siddharth Singh — Full-stack Engineer",
+    firstName: "Manav",
+    lastName: "Purswani",
+    username: "manav-purswani",
+    title: "Manav Purswani — Business Systems Analyst → Product Analyst",
     description,
     url: SITE_URL,
-    siteName: "Siddharth Singh",
+    siteName: "Manav Purswani",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Siddharth Singh — Full-stack Engineer",
+    title: "Manav Purswani — Business Systems Analyst → Product Analyst",
     description,
-    creator: "@siddonweb",
   },
-  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
@@ -98,12 +80,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const posts = getBlogPosts().map((p) => ({
-    slug: p.slug,
-    title: p.metadata.title,
-  }));
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -134,7 +112,7 @@ export default function RootLayout({
         </div>
         <MobileDock />
         <AskWidget />
-        <CommandPalette posts={posts} />
+        <CommandPalette />
       </body>
     </html>
   );

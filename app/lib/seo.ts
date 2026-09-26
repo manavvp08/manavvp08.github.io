@@ -1,50 +1,41 @@
-import { profile, socials, dailyDrivers } from "./data";
+import { dailyDrivers, profile, socials } from "./data";
 
-export const SITE_URL = "https://sidonweb.com";
-
-const skills = Array.from(
-  new Set([
-    "Full-stack development",
-    "Real-time systems",
-    "Distributed systems",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "Apache Kafka",
-    "WebSockets",
-    "PostgreSQL",
-    "Prisma",
-    "Retrieval-augmented generation",
-    "AI engineering",
-    ...dailyDrivers,
-  ]),
-);
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 const person = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
   name: profile.name,
   url: SITE_URL,
-  image: `${SITE_URL}/profile.jpg`,
-  jobTitle: "Full-stack Engineer",
+  jobTitle: profile.role,
   email: `mailto:${profile.email}`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Greater Noida",
-    addressRegion: "Uttar Pradesh",
+    addressLocality: "Mumbai",
+    addressRegion: "Maharashtra",
     addressCountry: "IN",
   },
-  worksFor: { "@type": "Organization", name: "Houston Systems" },
-  knowsAbout: skills,
-  sameAs: socials.filter((s) => s.label !== "Email").map((s) => s.href),
+  worksFor: { "@type": "Organization", name: "Deloitte" },
+  knowsAbout: [
+    "Product analytics",
+    "Product management",
+    "Business analysis",
+    "SQL",
+    "Data analysis",
+    "Root cause analysis",
+    "Requirements gathering",
+    "Acceptance testing",
+    ...dailyDrivers,
+  ],
+  sameAs: socials.filter((social) => social.label !== "Email").map((social) => social.href),
 };
 
 const website = {
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
-  name: `${profile.name} — Full-stack Engineer`,
+  name: `${profile.name} — Business Systems Analyst → Product Analyst`,
   publisher: { "@id": `${SITE_URL}/#person` },
   inLanguage: "en",
 };

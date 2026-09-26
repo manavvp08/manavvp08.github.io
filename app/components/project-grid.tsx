@@ -53,7 +53,7 @@ export default function ProjectGrid({ limit }: { limit?: number }) {
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-bg-2">
                 <Image
                   src={p.image}
-                  alt={`${p.title} — ${p.kind} project by Siddharth Singh`}
+                  alt={`${p.title} — ${p.kind} project by Manav Purswani`}
                   fill
                   sizes="(max-width: 768px) 100vw, 520px"
                   className="object-cover"

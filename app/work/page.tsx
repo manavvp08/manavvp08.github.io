@@ -8,7 +8,7 @@ import { projects, caseStudies } from "../lib/data";
 import { SITE_URL } from "../lib/seo";
 
 const description =
-  "Selected full-stack, real-time systems, AI, and product engineering work by Siddharth Singh.";
+  "Selected business analysis, product, and accessibility work by Manav Purswani.";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work" },
   openGraph: {
     type: "website",
-    title: "Work - Siddharth Singh",
+    title: "Work - Manav Purswani",
     description,
     url: "/work",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Work - Siddharth Singh",
+    title: "Work - Manav Purswani",
     description,
   },
 };
@@ -31,10 +31,10 @@ export default function WorkIndex() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Siddharth Singh - Work",
+    name: "Manav Purswani - Work",
     description,
     url: `${SITE_URL}/work`,
-    author: { "@type": "Person", name: "Siddharth Singh", url: SITE_URL },
+    author: { "@type": "Person", name: "Manav Purswani", url: SITE_URL },
     hasPart: [...caseStudies, ...projects].map((p) => ({
       "@type": "CreativeWork",
       name: p.title,
@@ -63,7 +63,7 @@ export default function WorkIndex() {
 
       <Reveal delay={60}>
         <h1 className="mt-5 max-w-2xl font-display text-[2.2rem] font-semibold leading-[1.05] tracking-tight sm:text-[3rem]">
-          Products, systems, and tools built to hold up.
+          Analysis, delivery, and product work tied to outcomes.
         </h1>
       </Reveal>
       <Reveal delay={110}>

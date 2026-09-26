@@ -4,7 +4,6 @@ import {
   Layers,
   User,
   Mail,
-  PenLine,
   type LucideIcon,
 } from "lucide-react";
 
@@ -13,8 +12,7 @@ export type IconKey =
   | "work"
   | "stack"
   | "about"
-  | "contact"
-  | "blogs";
+  | "contact";
 
 export type NavItem = {
   id: string;
@@ -31,9 +29,6 @@ export const navItems: NavItem[] = [
   { id: "contact", label: "Contact", icon: "contact", key: "05" },
 ];
 
-// Standalone page, kept apart from the scroll sections above.
-export const blogsNav = { id: "blogs", label: "Blogs", icon: "blogs" as IconKey, href: "/blogs" };
-
 export const SECTION_IDS = navItems.map((n) => n.id);
 
 const ICONS: Record<IconKey, LucideIcon> = {
@@ -42,7 +37,6 @@ const ICONS: Record<IconKey, LucideIcon> = {
   stack: Layers,
   about: User,
   contact: Mail,
-  blogs: PenLine,
 };
 
 export function NavIcon({

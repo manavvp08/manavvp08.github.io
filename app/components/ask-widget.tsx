@@ -31,7 +31,9 @@ export default function AskWidget() {
       {/* Panel */}
       <div
         role="dialog"
-        aria-label="Ask about Sid"
+        aria-label="Ask about Manav"
+        aria-hidden={!open}
+        inert={!open}
         className={`fixed z-[80] flex flex-col overflow-hidden rounded-2xl border border-border-strong bg-surface transition-all duration-300 ease-out ${
           open
             ? "translate-y-0 opacity-100"
@@ -41,7 +43,7 @@ export default function AskWidget() {
         <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3.5">
           <div>
             <div className="text-[14px] font-semibold leading-tight text-fg">
-              Ask about Sid
+              Ask about Manav
             </div>
             <div className="mt-1 flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
@@ -65,7 +67,7 @@ export default function AskWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        aria-label={open ? "Close ask panel" : "Ask about Sid"}
+        aria-label={open ? "Close ask panel" : "Ask about Manav"}
         className="fixed bottom-6 right-6 z-[70] hidden items-center gap-2.5 rounded-full border border-border bg-surface/95 py-2 pl-2 pr-4 shadow-[0_8px_26px_-10px_rgba(0,0,0,0.7)] backdrop-blur-xl transition-transform active:scale-95 lg:flex"
       >
         <span className="grid h-7 w-7 place-items-center rounded-full bg-accent text-accent-fg">

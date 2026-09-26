@@ -1,29 +1,11 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 
-const files = [
-  "app/lib/data.ts",
-  "app/lib/ask-engine.ts",
-  "app/lib/seo.ts",
-  "app/layout.tsx",
-  "app/manifest.ts",
-  "app/opengraph-image.tsx",
-  "app/components/ask-chat.tsx",
-  "app/components/ask-widget.tsx",
-  "app/components/command-palette.tsx",
-  "app/components/mobile-dock.tsx",
-  "app/components/sidebar.tsx",
-  "app/components/project-grid.tsx",
-  "app/components/case-study-block.tsx",
-  "app/components/sections/intro.tsx",
-  "app/components/sections/work.tsx",
-  "app/components/sections/stack.tsx",
-  "app/components/sections/about.tsx",
-  "app/components/sections/contact.tsx",
-  "app/work/page.tsx",
-  "app/work/[slug]/page.tsx",
-];
+const files = readdirSync("app", { recursive: true })
+  .map(String)
+  .filter((file) => /\.(?:ts|tsx|css|svg)$/.test(file))
+  .map((file) => `app/${file}`);
 
 const source = files.map((file) => readFileSync(file, "utf8")).join("\n");
 
@@ -51,4 +33,18 @@ test("main portfolio surfaces no longer present the source author's identity", (
     source,
     /Siddharth Singh|sidonweb|siddonweb|heysid88|Houston Systems|Raasta/i,
   );
+});
+
+test("source-author assets and content are removed", () => {
+  for (const path of ["public/profile.jpg", "public/resume.pdf", "content", "context.md"]) {
+    assert.equal(existsSync(path), false, `${path} should not remain in Manav's portfolio`);
+  }
+});
+
+test("GitHub Pages static export is configured", () => {
+  const nextConfig = readFileSync("next.config.mjs", "utf8");
+  const workflow = readFileSync(".github/workflows/deploy-pages.yml", "utf8");
+  assert.match(nextConfig, /output:\s*["']export["']/);
+  assert.match(nextConfig, /basePath/);
+  assert.match(workflow, /actions\/deploy-pages/);
 });

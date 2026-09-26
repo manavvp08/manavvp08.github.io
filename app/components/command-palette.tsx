@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { projects, caseStudies, socials, profile, links } from "../lib/data";
+import { projects, caseStudies, socials, profile } from "../lib/data";
 import { navItems } from "./nav-items";
 import { scrollToSection } from "./use-scroll-spy";
 
@@ -16,11 +16,7 @@ type Item = {
   keywords?: string;
 };
 
-export default function CommandPalette({
-  posts = [],
-}: {
-  posts?: { slug: string; title: string }[];
-}) {
+export default function CommandPalette() {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -57,13 +53,6 @@ export default function CommandPalette({
         group: "Navigate",
         run: section(n.id),
       })),
-      {
-        id: "n-blogs",
-        label: "Blogs",
-        hint: "Page",
-        group: "Navigate",
-        run: route("/blogs"),
-      },
     ];
     const caseItems: Item[] = caseStudies.map((c) => ({
       id: `c-${c.slug}`,
@@ -81,17 +70,10 @@ export default function CommandPalette({
       keywords: p.stack.join(" "),
       run: route(`/work/${p.slug}`),
     }));
-    const postItems: Item[] = posts.map((p) => ({
-      id: `b-${p.slug}`,
-      label: p.title,
-      hint: "Post",
-      group: "Blogs",
-      run: route(`/blogs/${p.slug}`),
-    }));
     const actions: Item[] = [
       {
         id: "a-ask",
-        label: "Ask about Sid",
+        label: "Ask about Manav",
         hint: "Site",
         group: "Actions",
         run: () => {
@@ -110,26 +92,6 @@ export default function CommandPalette({
           setTimeout(() => setCopied(false), 1400);
         },
       },
-      {
-        id: "a-resume",
-        label: "Download resume",
-        hint: "PDF",
-        group: "Actions",
-        run: () => {
-          window.open(links.resumeUrl, "_blank", "noopener");
-          close();
-        },
-      },
-      {
-        id: "a-call",
-        label: "Book a call",
-        hint: "15 min",
-        group: "Actions",
-        run: () => {
-          window.open(links.calUrl, "_blank", "noopener");
-          close();
-        },
-      },
       ...socials
         .filter((s) => s.label !== "Email")
         .map((s) => ({
@@ -143,8 +105,8 @@ export default function CommandPalette({
           },
         })),
     ];
-    return [...nav, ...caseItems, ...projectItems, ...postItems, ...actions];
-  }, [router, close, pathname, posts]);
+    return [...nav, ...caseItems, ...projectItems, ...actions];
+  }, [router, close, pathname]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

@@ -6,11 +6,10 @@ import {
   ArrowRight,
   ArrowUpRight,
   ChevronUp,
-  Download,
   MessageCircleMore,
   X,
 } from "lucide-react";
-import { navItems, blogsNav, NavIcon, SECTION_IDS } from "./nav-items";
+import { navItems, NavIcon, SECTION_IDS } from "./nav-items";
 import { useScrollSpy, scrollToSection } from "./use-scroll-spy";
 import { socials, links } from "../lib/data";
 import ThemeToggle from "./theme-toggle";
@@ -20,11 +19,8 @@ export default function MobileDock() {
   const router = useRouter();
   const spy = useScrollSpy(SECTION_IDS);
   const [open, setOpen] = useState(false);
-  const onBlogs = pathname.startsWith("/blogs");
-  const activeId = onBlogs ? "blogs" : pathname === "/" ? spy : "intro";
-  const active = onBlogs
-    ? blogsNav
-    : navItems.find((n) => n.id === activeId) ?? navItems[0];
+  const activeId = pathname === "/" ? spy : "intro";
+  const active = navItems.find((n) => n.id === activeId) ?? navItems[0];
 
   useEffect(() => {
     setOpen(false);
@@ -84,6 +80,8 @@ export default function MobileDock() {
   return (
     <div className="lg:hidden">
       <div
+        aria-hidden={!open}
+        inert={!open}
         className={`fixed inset-0 z-40 flex flex-col bg-bg/95 backdrop-blur-2xl transition-opacity duration-300 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -136,39 +134,6 @@ export default function MobileDock() {
             );
           })}
 
-          <span
-            className="my-3 ml-11 h-px w-10 bg-border transition-all duration-500 ease-out"
-            style={{
-              transitionDelay: open ? `${90 + navItems.length * 45}ms` : "0ms",
-              opacity: open ? 1 : 0,
-            }}
-          />
-
-          <button
-            onClick={() => {
-              setOpen(false);
-              router.push("/blogs");
-            }}
-            style={{ transitionDelay: open ? `${135 + navItems.length * 45}ms` : "0ms" }}
-            className={`group flex items-center gap-5 py-1.5 text-left transition-all duration-500 ease-out ${
-              open ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-            }`}
-          >
-            <span className={`flex w-6 items-center font-mono text-xs ${onBlogs ? "text-accent" : "text-faint"}`}>
-              {onBlogs ? (
-                <ArrowRight className="h-[18px] w-[18px]" />
-              ) : (
-                <ArrowUpRight className="h-[18px] w-[18px]" />
-              )}
-            </span>
-            <span
-              className={`font-display text-[2.4rem] leading-[1.05] tracking-tight transition-colors ${
-                onBlogs ? "text-fg" : "text-muted"
-              }`}
-            >
-              {blogsNav.label}
-            </span>
-          </button>
         </nav>
 
         <div
@@ -177,12 +142,12 @@ export default function MobileDock() {
         >
           <div className="flex items-center justify-between border-t border-border pt-6">
             <a
-              href={links.resumeUrl}
+              href={links.linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface-2 px-4 py-2.5 text-sm font-semibold text-fg"
             >
-              Resume <Download className="h-4 w-4 text-faint" />
+              LinkedIn <ArrowUpRight className="h-4 w-4 text-faint" />
             </a>
             <div className="flex gap-4">
               {socials
@@ -248,7 +213,7 @@ export default function MobileDock() {
           >
             <button
               onClick={() => window.dispatchEvent(new Event("open-ask"))}
-              aria-label="Ask about Sid"
+              aria-label="Ask about Manav"
               tabIndex={open ? -1 : 0}
               className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-fg text-bg shadow-[0_12px_34px_-14px_rgba(0,0,0,0.8)] transition-transform active:scale-95"
             >
