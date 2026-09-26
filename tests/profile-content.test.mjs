@@ -47,4 +47,6 @@ test("GitHub Pages static export is configured", () => {
   assert.match(nextConfig, /output:\s*["']export["']/);
   assert.match(nextConfig, /basePath/);
   assert.match(workflow, /actions\/deploy-pages/);
+  assert.match(workflow, /NEXT_PUBLIC_SITE_URL: https:\/\/manavvp08\.github\.io\s/);
+  assert.doesNotMatch(workflow, /NEXT_PUBLIC_BASE_PATH|\/product-portfolio/);
 });
