@@ -9,7 +9,7 @@ import {
   MessageCircleMore,
   X,
 } from "lucide-react";
-import { navItems, NavIcon, SECTION_IDS } from "./nav-items";
+import { navItems, writingNav, NavIcon, SECTION_IDS } from "./nav-items";
 import { useScrollSpy, scrollToSection } from "./use-scroll-spy";
 import { socials, links } from "../lib/data";
 import ThemeToggle from "./theme-toggle";
@@ -19,8 +19,11 @@ export default function MobileDock() {
   const router = useRouter();
   const spy = useScrollSpy(SECTION_IDS);
   const [open, setOpen] = useState(false);
-  const activeId = pathname === "/" ? spy : "intro";
-  const active = navItems.find((n) => n.id === activeId) ?? navItems[0];
+  const onWriting = pathname.startsWith(writingNav.href);
+  const activeId = onWriting ? writingNav.id : pathname === "/" ? spy : "intro";
+  const active = onWriting
+    ? writingNav
+    : navItems.find((n) => n.id === activeId) ?? navItems[0];
 
   useEffect(() => {
     setOpen(false);
@@ -134,6 +137,39 @@ export default function MobileDock() {
             );
           })}
 
+          <span
+            className="my-3 ml-11 h-px w-10 bg-border transition-all duration-500 ease-out"
+            style={{
+              transitionDelay: open ? `${90 + navItems.length * 45}ms` : "0ms",
+              opacity: open ? 1 : 0,
+            }}
+          />
+
+          <button
+            onClick={() => {
+              setOpen(false);
+              router.push(writingNav.href);
+            }}
+            style={{ transitionDelay: open ? `${135 + navItems.length * 45}ms` : "0ms" }}
+            className={`group flex items-center gap-5 py-1.5 text-left transition-all duration-500 ease-out ${
+              open ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+            }`}
+          >
+            <span className={`flex w-6 items-center font-mono text-xs ${onWriting ? "text-accent" : "text-faint"}`}>
+              {onWriting ? (
+                <ArrowRight className="h-[18px] w-[18px]" />
+              ) : (
+                <ArrowUpRight className="h-[18px] w-[18px]" />
+              )}
+            </span>
+            <span
+              className={`font-display text-[2.4rem] leading-[1.05] tracking-tight transition-colors ${
+                onWriting ? "text-fg" : "text-muted"
+              }`}
+            >
+              {writingNav.label}
+            </span>
+          </button>
         </nav>
 
         <div

@@ -4,6 +4,7 @@ import {
   Layers,
   User,
   Mail,
+  PenLine,
   type LucideIcon,
 } from "lucide-react";
 
@@ -12,7 +13,8 @@ export type IconKey =
   | "work"
   | "stack"
   | "about"
-  | "contact";
+  | "contact"
+  | "writing";
 
 export type NavItem = {
   id: string;
@@ -29,6 +31,13 @@ export const navItems: NavItem[] = [
   { id: "contact", label: "Contact", icon: "contact", key: "05" },
 ];
 
+export const writingNav = {
+  id: "writing",
+  label: "Writing",
+  icon: "writing" as IconKey,
+  href: "/writing",
+};
+
 export const SECTION_IDS = navItems.map((n) => n.id);
 
 const ICONS: Record<IconKey, LucideIcon> = {
@@ -37,6 +46,7 @@ const ICONS: Record<IconKey, LucideIcon> = {
   stack: Layers,
   about: User,
   contact: Mail,
+  writing: PenLine,
 };
 
 export function NavIcon({

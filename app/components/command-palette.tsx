@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { projects, caseStudies, socials, profile } from "../lib/data";
-import { navItems } from "./nav-items";
+import { navItems, writingNav } from "./nav-items";
 import { scrollToSection } from "./use-scroll-spy";
 
 type Item = {
@@ -53,6 +53,13 @@ export default function CommandPalette() {
         group: "Navigate",
         run: section(n.id),
       })),
+      {
+        id: `n-${writingNav.id}`,
+        label: writingNav.label,
+        hint: "Go",
+        group: "Navigate",
+        run: route(writingNav.href),
+      },
     ];
     const caseItems: Item[] = caseStudies.map((c) => ({
       id: `c-${c.slug}`,

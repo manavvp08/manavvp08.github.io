@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { profile, socials, links } from "../lib/data";
-import { navItems, SECTION_IDS } from "./nav-items";
+import { navItems, writingNav, SECTION_IDS } from "./nav-items";
 import { useScrollSpy, scrollToSection } from "./use-scroll-spy";
 import Button from "./button";
 import LocalTime from "./local-time";
@@ -27,11 +28,12 @@ function NavList() {
   const spy = useScrollSpy(SECTION_IDS);
   const go = useGoToSection();
   const active = pathname === "/" ? spy : "";
+  const onWriting = pathname.startsWith(writingNav.href);
 
   return (
     <nav aria-label="Primary" className="flex flex-col gap-0.5">
       {navItems.map((item) => {
-        const on = active === item.id;
+        const on = active === item.id && !onWriting;
         return (
           <button
             key={item.id}
@@ -63,6 +65,36 @@ function NavList() {
           </button>
         );
       })}
+
+      <span className="my-2 ml-[30px] h-px w-7 bg-border" />
+
+      <Link
+        href={writingNav.href}
+        className="group relative flex items-center gap-3.5 py-1.5 text-left"
+        aria-current={onWriting ? "page" : undefined}
+      >
+        <span
+          className={`absolute -left-8 h-6 w-[3px] rounded-r-full bg-accent transition-all duration-300 ${
+            onWriting ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <span
+          className={`flex w-4 shrink-0 items-center transition-colors ${
+            onWriting ? "text-accent" : "text-faint group-hover:text-muted"
+          }`}
+        >
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </span>
+        <span
+          className={`font-display text-[23px] font-semibold leading-tight tracking-tight transition-all duration-300 ${
+            onWriting
+              ? "text-fg"
+              : "text-faint group-hover:translate-x-0.5 group-hover:text-muted"
+          }`}
+        >
+          {writingNav.label}
+        </span>
+      </Link>
     </nav>
   );
 }
