@@ -106,7 +106,7 @@ test("Manav's supplied portrait is limited to the sidebar and profile panel", ()
   const sidebar = readFileSync("app/components/sidebar.tsx", "utf8");
   assert.match(sidebar, /src=["']\/sidebar-profile\.jpg["']/);
   assert.match(sidebar, /alt=["']Manav Purswani["']/);
-  assert.match(sidebar, /className=["']object-cover object-top["']/);
+  assert.match(sidebar, /className=["']duotone object-cover object-top["']/);
   const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
   const styles = readFileSync("app/globals.css", "utf8");
   assert.match(intro, /src=["']\/sidebar-profile\.jpg["']/);
