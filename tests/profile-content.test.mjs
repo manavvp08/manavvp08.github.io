@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 
@@ -96,4 +97,17 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.match(projectCards, /p\.status/);
   assert.match(askEngine, /\/#toolkit/);
   assert.doesNotMatch(askEngine, /\/#stack/);
+});
+
+test("Manav's supplied portrait appears only in the desktop sidebar", () => {
+  const portraitPath = "public/sidebar-profile.jpg";
+  assert.equal(existsSync(portraitPath), true, `${portraitPath} should exist`);
+
+  const sidebar = readFileSync("app/components/sidebar.tsx", "utf8");
+  assert.match(sidebar, /src=["']\/sidebar-profile\.jpg["']/);
+  assert.match(sidebar, /alt=["']Manav Purswani["']/);
+  assert.equal(source.match(/\/sidebar-profile\.jpg/g)?.length, 1);
+
+  const digest = createHash("sha256").update(readFileSync(portraitPath)).digest("hex");
+  assert.equal(digest, "4a32529690147af67cb2d079ef63019d6f99f209e4d4ea11b00f3f62a7f55cda");
 });
