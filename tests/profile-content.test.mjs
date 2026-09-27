@@ -99,6 +99,31 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
+test("YouTube Search teardown is original, transparent, and decision-complete", () => {
+  const data = readFileSync("app/lib/data.ts", "utf8");
+
+  for (const expected of [
+    'slug: "rethinking-youtube-search"',
+    'category: "Teardown"',
+    'status: "Concept"',
+    "Independent concept study",
+    "Unshipped proposal",
+    "Intent routing",
+    "Evidence and assumptions",
+    "Experiment design",
+    "Target +8pp",
+    "No regression",
+    "support.google.com/youtube/answer/16090438",
+    "research.google/pubs/deep-neural-networks-for-youtube-recommendations",
+    "cloud.google.com/vertex-ai/docs/vector-search/overview",
+  ]) {
+    assert.match(data, new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.equal(existsSync("public/photos/youtube-search.svg"), true);
+  assert.doesNotMatch(source, /Kashish Kataria|kashishpm/i);
+});
+
 test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
   const portraitPath = "public/sidebar-profile.jpg";
   assert.equal(existsSync(portraitPath), true, `${portraitPath} should exist`);
