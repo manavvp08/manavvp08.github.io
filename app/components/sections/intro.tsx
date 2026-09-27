@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import Reveal from "../reveal";
 import CountUp from "../count-up";
@@ -17,8 +18,15 @@ function ProfilePanel({ mobile = false }: { mobile?: boolean }) {
       <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
       <div className="absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
       <div className="absolute inset-0 grid place-items-center">
-        <div className="grid h-40 w-40 place-items-center rounded-full border border-border-strong bg-surface/80 font-display text-6xl font-semibold tracking-[-0.08em] text-fg shadow-2xl backdrop-blur sm:h-48 sm:w-48 sm:text-7xl">
-          MP
+        <div className="relative h-40 w-40 overflow-hidden rounded-full border border-border-strong bg-surface/80 shadow-2xl sm:h-48 sm:w-48">
+          <Image
+            src="/sidebar-profile.jpg"
+            alt="Manav Purswani"
+            fill
+            sizes="(max-width: 640px) 160px, 192px"
+            className="duotone object-cover object-top"
+            priority
+          />
         </div>
       </div>
       <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
