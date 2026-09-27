@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ImageIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import Reveal from "./reveal";
 import { caseStudies } from "../lib/data";
@@ -51,8 +51,22 @@ export default function CaseStudyBlock() {
                     className="object-cover"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center">
-                    <ImageIcon className="h-6 w-6 text-border-strong" />
+                  <div className="bg-grid flex h-full flex-col justify-between p-6 sm:p-8">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
+                      Outcome snapshot
+                    </span>
+                    <div className="grid grid-cols-2 gap-3">
+                      {c.metrics.slice(0, 2).map((metric) => (
+                        <div key={metric.label}>
+                          <div className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+                            {metric.value}
+                          </div>
+                          <div className="mt-1 text-[11px] leading-snug text-muted sm:text-xs">
+                            {metric.label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
