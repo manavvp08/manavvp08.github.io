@@ -8,21 +8,21 @@ import { projects, caseStudies } from "../lib/data";
 import { SITE_URL } from "../lib/seo";
 
 const description =
-  "Selected business analysis, product, and accessibility work by Manav Purswani.";
+  "Case studies and product projects by Manav Purswani.";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Portfolio",
   description,
   alternates: { canonical: "/work" },
   openGraph: {
     type: "website",
-    title: "Work - Manav Purswani",
+    title: "Portfolio - Manav Purswani",
     description,
     url: "/work",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Work - Manav Purswani",
+    title: "Portfolio - Manav Purswani",
     description,
   },
 };
@@ -31,7 +31,7 @@ export default function WorkIndex() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Manav Purswani - Work",
+    name: "Manav Purswani - Portfolio",
     description,
     url: `${SITE_URL}/work`,
     author: { "@type": "Person", name: "Manav Purswani", url: SITE_URL },
@@ -55,7 +55,7 @@ export default function WorkIndex() {
 
       <Reveal>
         <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-          <span className="text-muted">Work</span>
+          <span className="text-muted">Portfolio</span>
           <span className="h-px w-5 bg-border" />
           <span>{caseStudies.length} case studies · {projects.length} projects</span>
         </div>

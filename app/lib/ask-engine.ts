@@ -29,7 +29,7 @@ const passages: Passage[] = [
   ...capabilities.map((capability, index) => ({
     id: `capability-${index}`,
     label: "Toolkit",
-    href: "/#stack",
+    href: "/#toolkit",
     text: `${capability.title}: ${capability.body}`,
     keywords: [capability.title, ...capability.tags].map((value) => value.toLowerCase()),
   })),
@@ -64,7 +64,7 @@ const passages: Passage[] = [
   {
     id: "skills",
     label: "Toolkit",
-    href: "/#stack",
+    href: "/#toolkit",
     text: "My core toolkit includes SQL, data analysis, root cause analysis, requirements gathering, acceptance testing, roadmapping, and stakeholder alignment. I also hold SQL Basic and SQL Intermediate certifications.",
     keywords: ["skills", "tools", "sql", "analysis", "requirements", "uat", "roadmap", "certification"],
   },

@@ -40,7 +40,7 @@ const credentials = ["SQL Intermediate", "SQL Basic", "English", "Hindi", "Frenc
 export default function About() {
   return (
     <Section id="about" className="py-16 sm:py-32">
-      <Kicker index="04" label="About" />
+      <Kicker index="05" label="About" />
 
       <div className="mt-6 grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-14">
         <div>

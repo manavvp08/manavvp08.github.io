@@ -17,7 +17,7 @@ const channels = [
 export default function Contact() {
   return (
     <Section id="contact" className="pb-24 pt-16 sm:pb-32 sm:pt-32">
-      <Kicker index="05" label="Contact" />
+      <Kicker index="06" label="Contact" />
 
       <Reveal delay={60}>
         <h2 className="mt-6 max-w-2xl font-display text-[2.2rem] leading-[1.04] tracking-tight text-balance sm:text-[3rem]">

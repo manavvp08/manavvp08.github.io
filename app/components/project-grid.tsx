@@ -69,8 +69,10 @@ export default function ProjectGrid({ limit }: { limit?: number }) {
                     {p.year}
                   </span>
                 </div>
-                <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
-                  {p.kind}
+                <div className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em]">
+                  <span className="text-accent-strong">{p.status}</span>
+                  <span className="text-border-strong">/</span>
+                  <span className="text-muted">{p.kind}</span>
                 </div>
                 <p className="mt-3 line-clamp-2 text-[14.5px] leading-relaxed text-fg/75">
                   {p.tagline}

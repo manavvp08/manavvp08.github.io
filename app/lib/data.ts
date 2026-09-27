@@ -51,7 +51,7 @@ export const projects: Project[] = [
     slug: "botx-ai",
     title: "BotX.ai",
     year: 2024,
-    status: "Project",
+    status: "Built",
     kind: "AI · Accessibility",
     tagline: "Natural-language web navigation that turns intent into tangible actions.",
     summary:
@@ -83,6 +83,7 @@ export type CaseStudy = {
   slug: string;
   title: string;
   year: number;
+  category: "Real work" | "Analytics" | "Teardown" | "Experiment";
   status: string;
   kind: string;
   tagline: string;
@@ -117,7 +118,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "enterprise-transformation",
     title: "Enterprise Systems Transformation",
     year: 2026,
-    status: "Delivered",
+    category: "Real work",
+    status: "Shipped",
     kind: "Business analysis · Release readiness",
     tagline: "Turning 79 core business scenarios into a zero-defect production go-live.",
     summary:

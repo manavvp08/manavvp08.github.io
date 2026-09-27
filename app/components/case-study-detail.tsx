@@ -35,17 +35,17 @@ export default function CaseStudyDetail({
     <article className="mx-auto max-w-4xl px-5 py-10 sm:px-10 sm:py-14">
       <Reveal>
         <Link
-          href="/#work"
+          href="/#case-studies"
           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-fg"
         >
-          <ArrowLeft className="h-3.5 w-3.5" /> Work
+          <ArrowLeft className="h-3.5 w-3.5" /> Case studies
         </Link>
       </Reveal>
 
       <Reveal delay={50}>
         <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em]">
           <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-accent-strong">
-            Case study
+            {study.category}
           </span>
           <span className="text-accent-dim">{study.kind}</span>
           <span className="text-border-strong">/</span>

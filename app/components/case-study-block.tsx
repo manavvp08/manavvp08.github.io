@@ -66,8 +66,10 @@ export default function CaseStudyBlock() {
                     {c.year}
                   </span>
                 </div>
-                <div className="mt-1.5 flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em]">
-                  <span className="text-accent-strong">Case study</span>
+                <div className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em]">
+                  <span className="text-accent-strong">{c.category}</span>
+                  <span className="text-border-strong">/</span>
+                  <span className="text-muted">{c.status}</span>
                   <span className="text-border-strong">/</span>
                   <span className="text-muted">{c.kind}</span>
                 </div>

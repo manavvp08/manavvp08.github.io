@@ -130,10 +130,10 @@ export default async function WorkPage({
       />
       <Reveal>
         <Link
-          href="/#work"
+          href="/#projects"
           className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-fg"
         >
-          <ArrowLeft className="h-3.5 w-3.5" /> Work
+          <ArrowLeft className="h-3.5 w-3.5" /> Projects
         </Link>
       </Reveal>
 

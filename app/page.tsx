@@ -1,7 +1,8 @@
 import HashScroll from "./components/hash-scroll";
 import Intro from "./components/sections/intro";
-import Work from "./components/sections/work";
-import Stack from "./components/sections/stack";
+import CaseStudies from "./components/sections/case-studies";
+import Projects from "./components/sections/projects";
+import Toolkit from "./components/sections/stack";
 import About from "./components/sections/about";
 import Contact from "./components/sections/contact";
 import { SectionDivider } from "./components/sections/section-shell";
@@ -14,9 +15,11 @@ export default function Home() {
       <HashScroll />
       <Intro />
       <SectionDivider />
-      <Work />
+      <CaseStudies />
       <SectionDivider />
-      <Stack />
+      <Projects />
+      <SectionDivider />
+      <Toolkit />
       <SectionDivider />
       <About />
       <SectionDivider />

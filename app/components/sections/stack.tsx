@@ -2,10 +2,10 @@ import Reveal from "../reveal";
 import { Section, Kicker } from "./section-shell";
 import { capabilities, dailyDrivers } from "../../lib/data";
 
-export default function Stack() {
+export default function Toolkit() {
   return (
-    <Section id="stack" className="py-16 sm:py-32">
-      <Kicker index="03" label="Toolkit" />
+    <Section id="toolkit" className="py-16 sm:py-32">
+      <Kicker index="04" label="Toolkit" />
 
       <Reveal delay={60}>
         <h2 className="mt-6 max-w-3xl font-display text-[clamp(1.7rem,3.6vw,2.5rem)] leading-[1.14] tracking-tight text-balance">

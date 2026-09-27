@@ -31,8 +31,10 @@ export default function ProjectList({ limit }: { limit?: number }) {
               <h3 className="font-display text-[17px] font-semibold tracking-tight text-fg sm:text-lg">
                 {p.title}
               </h3>
-              <p className="mt-0.5 truncate font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
-                {p.kind}
+              <p className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em]">
+                <span className="text-accent-strong">{p.status}</span>
+                <span className="text-border-strong">/</span>
+                <span className="text-muted">{p.kind}</span>
               </p>
             </div>
             <span className="hidden shrink-0 font-mono text-xs text-muted sm:block">
