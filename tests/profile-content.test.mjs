@@ -170,6 +170,39 @@ test("YouTube Search teardown shows the PM work through original visual artifact
   assert.match(detail, /m\.kind/);
 });
 
+test("YouTube Search diagrams keep long labels inside their visual containers", () => {
+  const currentJourney = readFileSync(
+    "public/photos/youtube-search-current-loop.svg",
+    "utf8",
+  );
+  const failureMode = readFileSync(
+    "public/photos/youtube-search-keyword-flow.svg",
+    "utf8",
+  );
+  const targetJourney = readFileSync(
+    "public/photos/youtube-search-semantic-flow.svg",
+    "utf8",
+  );
+  const resultConcept = readFileSync(
+    "public/photos/youtube-search-result-concept.svg",
+    "utf8",
+  );
+  const architecture = readFileSync(
+    "public/photos/youtube-search-architecture.svg",
+    "utf8",
+  );
+
+  assert.match(currentJourney, /textLength="520"[^>]*>More effort/);
+  assert.match(failureMode, /textLength="740"[^>]*>PM hypothesis/);
+  assert.match(targetJourney, />Describe the<\/text>/);
+  assert.match(targetJourney, />problem naturally<\/text>/);
+  assert.match(targetJourney, /textLength="490"[^>]*>Right video/);
+  assert.match(resultConcept, /x="1400"[^>]*text-anchor="end"[^>]*>Shown only when useful/);
+  assert.match(architecture, />Merge<\/text>/);
+  assert.match(architecture, />\+ diversify<\/text>/);
+  assert.match(architecture, /textLength="820"[^>]*>Product boundary/);
+});
+
 test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
   const portraitPath = "public/sidebar-profile.jpg";
   assert.equal(existsSync(portraitPath), true, `${portraitPath} should exist`);
