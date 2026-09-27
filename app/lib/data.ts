@@ -191,6 +191,300 @@ export const caseStudies: CaseStudy[] = [
       { label: "LinkedIn profile", href: "https://www.linkedin.com/in/manav-purswani/" },
     ],
   },
+  {
+    slug: "rethinking-youtube-search",
+    title: "Rethinking YouTube Search",
+    year: 2026,
+    category: "Teardown",
+    status: "Concept",
+    kind: "Search · Discovery · AI",
+    tagline:
+      "An intent-aware search concept that improves discovery without replacing YouTube's proven ranking system.",
+    summary:
+      "An independent product teardown exploring how standard YouTube Search could handle exploratory and task-based queries through intent routing, hybrid retrieval, and a measurable rollout plan. This is an unshipped proposal, not a claim about YouTube's internal implementation.",
+    lead:
+      "This independent concept study asks a focused question: how might standard YouTube Search help people find the right video when they can describe the outcome they want, but not the exact title or creator? The proposal uses public product behaviour and official documentation, separates evidence from assumptions, and treats every impact number as a target to validate—not a result already achieved.",
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/photos/youtube-search.svg`,
+    accentStack: ["Intent routing", "Hybrid retrieval", "Experiment design"],
+    stack: [
+      "Product teardown",
+      "Search analytics",
+      "Jobs to be done",
+      "Hybrid retrieval",
+      "Experimentation",
+      "Product metrics",
+      "Risk analysis",
+    ],
+    meta: [
+      { label: "Role", value: "Product Analyst / PM candidate" },
+      { label: "Format", value: "Independent concept study" },
+      { label: "Evidence", value: "Desk research + product analysis" },
+      { label: "Scope", value: "English task-based and exploratory queries" },
+      { label: "Status", value: "Unshipped proposal" },
+    ],
+    sections: [
+      {
+        n: "01",
+        kicker: "Problem framing",
+        heading: "The hardest searches begin with an outcome, not a known video.",
+        body: [
+          "YouTube documents relevance, engagement, and quality as the core elements of search ranking, with personalization sometimes influenced by watch and search history. That system is well suited to exact titles, known creators, and popular topics. The opportunity is narrower: task-based and exploratory queries where the viewer knows what they need to accomplish but does not know the vocabulary used by the best video.",
+          "A query such as “fix a React page that flashes before loading” contains a symptom, context, and desired outcome. A title may instead describe “hydration mismatch” or “layout shift.” When the language of the need and the language of the content differ, the viewer has to translate the problem manually through reformulation, scanning, and trial clicks.",
+        ],
+        bullets: [
+          "Navigational searches are not the target; exact titles, channels, songs, and model numbers should remain lexical-first.",
+          "The target moment is a high-intent search where meaning matters more than word overlap.",
+          "The product risk is not simply returning a weak result—it is reducing trust in search and pushing the user into repeated query editing.",
+        ],
+      },
+      {
+        n: "02",
+        kicker: "Target user",
+        heading: "Design for the viewer who can describe the job, but not the answer.",
+        body: [
+          "The primary user is a task-driven learner: a person trying to repair, compare, understand, or make something. They often arrive with partial domain knowledge, use natural language, and judge the first few results quickly. Exploratory viewers are a secondary segment because they also benefit from better intent matching, but they tolerate more browsing and therefore feel the friction less sharply.",
+          "Job to be done: when I describe a problem or learning goal in my own words, help me reach a video that meaningfully advances the task without forcing me to guess the creator's terminology.",
+        ],
+        steps: [
+          {
+            label: "Trigger",
+            body: "A concrete task, symptom, or question creates a need for video guidance.",
+          },
+          {
+            label: "Search",
+            body: "The viewer expresses the situation naturally, often with incomplete terminology.",
+          },
+          {
+            label: "Evaluate",
+            body: "Titles, thumbnails, source credibility, format, and matched moments shape the first click.",
+          },
+          {
+            label: "Progress",
+            body: "A useful result resolves the need; a weak result triggers backtracking or reformulation.",
+          },
+        ],
+      },
+      {
+        n: "03",
+        kicker: "Evidence and assumptions",
+        heading: "Be precise about what is known—and what still needs validation.",
+        body: [
+          "The evidence base is deliberately modest: direct observation of the public search experience, official YouTube documentation describing ranking inputs, Google research on large-scale candidate generation and ranking, and Google Cloud documentation on dense, sparse, and hybrid retrieval. No internal query logs, creator data, production metrics, or original user interviews were available.",
+          "That creates a clear boundary. The case for an intent gap is a product hypothesis, not a diagnosis proven with YouTube telemetry. Before committing engineering effort, the team should quantify reformulation by query class, audit zero-click and short-click sessions, and run interviews that reconstruct what users expected from unsuccessful searches.",
+        ],
+        bullets: [
+          "Known: YouTube says search ranking considers relevance, engagement, and quality, and may personalize results.",
+          "Supported pattern: large-scale retrieval systems commonly separate candidate generation from ranking.",
+          "Hypothesis: task-based queries suffer disproportionately when user language and creator language differ.",
+          "Unknown: the size of the affected segment, current semantic capabilities, and the incremental value over existing systems.",
+        ],
+      },
+      {
+        n: "04",
+        kicker: "Scope",
+        heading: "Improve candidate recall first; leave the mature ranker intact.",
+        body: [
+          "The proposal does not replace YouTube Search, recommendations, or the emerging Ask YouTube experience. It introduces an intent-aware candidate path for standard result pages, only when the query classifier identifies an exploratory or task-based need with sufficient confidence.",
+          "That constraint keeps the concept testable. Exact and navigational queries stay on the fastest proven path; sensitive topics continue to use existing quality and safety controls; and the final ordering still relies on established relevance, quality, engagement, freshness, and personalization signals.",
+        ],
+        bullets: [
+          "Goal: increase the chance that the right video enters the candidate set for meaning-heavy queries.",
+          "Goal: reduce reformulation without adding visible complexity to every search.",
+          "Non-goal: generate a single AI answer or summarize videos on behalf of the viewer.",
+          "Non-goal: rebuild the ranking, recommendation, safety, or monetization systems.",
+        ],
+      },
+      {
+        n: "05",
+        kicker: "Product concept",
+        heading: "Route the query before changing the results.",
+        body: [
+          "The core idea is an intent router feeding a dual-retrieval pipeline. A lightweight classifier estimates whether a query is navigational, exact, exploratory, task-based, or sensitive. Only eligible queries activate semantic retrieval over timestamped transcript segments alongside the existing lexical path.",
+          "The merged candidate pool is then reranked using the platform's established quality and personalization signals. If confidence is low, the system falls back to the standard path or asks one concise clarification rather than pretending to understand. This makes semantic search a selective capability, not an expensive default.",
+        ],
+        steps: [
+          {
+            label: "Classify intent",
+            body: "Detect the likely search job and confidence while preserving a fast lexical route for exact queries.",
+          },
+          {
+            label: "Retrieve in parallel",
+            body: "Run keyword retrieval and semantic matching over transcript segments, titles, and descriptions for eligible queries.",
+          },
+          {
+            label: "Merge and diversify",
+            body: "Combine candidates while limiting duplicates, repeated creators, and a single format dominating the first screen.",
+          },
+          {
+            label: "Rerank with quality",
+            body: "Apply existing relevance, engagement, quality, freshness, safety, and personalization signals.",
+          },
+          {
+            label: "Learn from outcomes",
+            body: "Use reformulation, qualified clicks, return-to-results, and satisfaction feedback to improve routing and retrieval.",
+          },
+        ],
+      },
+      {
+        n: "06",
+        kicker: "Experience design",
+        heading: "Make relevance legible without making the result page busier.",
+        body: [
+          "Better retrieval is only useful if viewers can judge it. For semantic candidates, a short “matched in video” cue can surface the relevant transcript moment beneath the result. The cue explains why a result appears and offers a direct jump to the useful segment without replacing the creator's title or thumbnail.",
+          "When intent confidence is low, two or three lightweight refinement chips can clarify the job—for example, “debugging,” “beginner tutorial,” or “performance”—before the user rewrites the full query. Format controls should also persist so a deliberate choice such as Videos or Playlists is not immediately diluted by unrelated shelves.",
+        ],
+        bullets: [
+          "Keep exact searches visually unchanged and fast.",
+          "Show matched moments only when the segment materially explains relevance.",
+          "Use refinement chips as recovery, not as another mandatory step.",
+          "Preserve creator identity, source quality, accessibility, and safety context in every result.",
+        ],
+      },
+      {
+        n: "07",
+        kicker: "Product decisions",
+        heading: "Four trade-offs keep the concept useful, safe, and buildable.",
+        body: [
+          "The main decisions optimize for incremental value rather than a technically impressive rewrite. Each one creates a measurable downside that belongs in the experiment plan.",
+        ],
+        steps: [
+          {
+            label: "Selective, not universal",
+            body: "Semantic retrieval activates for high-confidence task and exploratory intent. This protects exact-query precision and latency, but makes routing accuracy a new dependency.",
+          },
+          {
+            label: "Segment-level context",
+            body: "Transcript chunks capture specific moments better than one vector per full video. The cost is a larger index and more complex freshness, language, and transcript-quality handling.",
+          },
+          {
+            label: "Hybrid, not vector-only",
+            body: "Lexical and semantic candidates compete in one pool. This preserves rare names and exact terms, but requires careful score calibration across retrieval methods.",
+          },
+          {
+            label: "Retrieval, not generation",
+            body: "The MVP improves ranked video discovery rather than producing an AI answer. It is easier to evaluate and keeps creators central, but does not compress the task into a single response.",
+          },
+        ],
+      },
+      {
+        n: "08",
+        kicker: "System thinking",
+        heading: "A two-speed pipeline balances relevance with latency.",
+        body: [
+          "At indexing time, available transcripts are cleaned, split into coherent timestamped segments, embedded, and stored with language, topic, freshness, creator, safety, and format metadata. Videos without reliable transcripts remain available through the lexical path rather than being silently excluded from search.",
+          "At query time, the intent router selects the retrieval policy. Eligible queries create a dense representation, retrieve an approximate nearest-neighbour set with metadata filters, merge it with sparse or lexical candidates, and send a bounded Top-K pool to the existing ranker. Approximate retrieval trades a small amount of recall for the latency and cost needed at scale, so K and search depth must be tuned against offline relevance judgements.",
+        ],
+        steps: [
+          {
+            label: "Index",
+            body: "Create language-aware transcript segments and refresh embeddings when transcripts materially change.",
+          },
+          {
+            label: "Route",
+            body: "Choose lexical-only, hybrid, clarification, or safety-constrained handling from intent and confidence.",
+          },
+          {
+            label: "Retrieve",
+            body: "Fetch bounded lexical and semantic candidate sets with format, language, and policy filters.",
+          },
+          {
+            label: "Rank",
+            body: "Apply the mature ranker and explicit diversity controls before rendering standard search results.",
+          },
+        ],
+      },
+      {
+        n: "09",
+        kicker: "Experiment design",
+        heading: "Prove relevance before optimizing engagement.",
+        body: [
+          "The first gate is offline. Build a blinded evaluation set stratified by navigational, exact, task-based, exploratory, sensitive, multilingual, and low-resource queries. Human raters judge whether a result advances the stated need, while retrieval metrics compare lexical, semantic, and hybrid candidate sets. A win requires higher task-query recall without a meaningful loss on exact queries.",
+          "The online test begins with a small English-language cohort and task-oriented queries. The primary metric is successful search rate: the share of sessions that produce a qualified video interaction without a rapid return and without immediate query reformulation. Because that proxy can be gamed by clickbait or long videos, satisfaction sampling and guardrails remain part of the decision, not a dashboard footnote.",
+        ],
+        bullets: [
+          "Primary: first-search success and query reformulation rate, segmented by inferred intent.",
+          "Diagnostic: time to first qualified click, matched-moment usage, back-to-results rate, and clarification-chip use.",
+          "Quality guardrails: satisfaction, harmful-content escalations, authoritative-source coverage for sensitive topics, and exact-query precision.",
+          "Ecosystem guardrails: creator concentration, format diversity, new-video exposure, p95 latency, and cost per search.",
+          "Decision rule: ship only if task-query success improves while exact search, safety, diversity, and latency stay within agreed bounds.",
+        ],
+      },
+      {
+        n: "10",
+        kicker: "Delivery and learning",
+        heading: "Roll out in layers, with a clear stop condition at each one.",
+        body: [
+          "The MVP should start with English how-to and troubleshooting queries where transcripts are available and relevance can be judged consistently. Multilingual retrieval, voice queries, generative answers, and broad entertainment discovery stay out of scope until the selective hybrid path proves incremental value.",
+          "The biggest learning is that search quality is not one ranking problem. It is a chain of intent recognition, candidate recall, quality control, understandable presentation, and outcome measurement. Improving one link while ignoring the others can create more technically relevant results without creating a more successful search session.",
+        ],
+        steps: [
+          {
+            label: "Phase 0 · Shadow",
+            body: "Generate hybrid candidates without changing the page; compare relevance, latency, coverage, and cost against the current path.",
+          },
+          {
+            label: "Phase 1 · Controlled test",
+            body: "Expose a small eligible cohort, audit failures daily, and stop automatically on safety or latency regression.",
+          },
+          {
+            label: "Phase 2 · Expand carefully",
+            body: "Increase traffic by query class only after success and guardrail thresholds hold across devices and creator segments.",
+          },
+          {
+            label: "Phase 3 · Broaden scope",
+            body: "Evaluate multilingual and multimodal retrieval after the English task-query foundation is stable.",
+          },
+        ],
+      },
+    ],
+    comparison: {
+      title: "Current vs proposed",
+      note: "Improve candidate quality without turning every search into an AI answer.",
+      columns: ["Decision point", "Intent-aware proposal", "Why it matters"],
+      rows: [
+        [
+          "Query handling",
+          "Route by intent and confidence",
+          "Protects fast, precise navigation while focusing cost on meaning-heavy searches.",
+        ],
+        [
+          "Candidate generation",
+          "Merge lexical results with transcript-segment retrieval",
+          "Finds videos that solve the task even when the wording differs.",
+        ],
+        [
+          "Result explanation",
+          "Show an optional matched moment",
+          "Lets viewers assess relevance before committing to a long video.",
+        ],
+        [
+          "Evaluation",
+          "Measure search success with safety, diversity, latency, and cost guardrails",
+          "Prevents watch time or click-through rate from becoming the only definition of quality.",
+        ],
+      ],
+    },
+    metrics: [
+      { value: "Target +8pp", label: "first-search success in the eligible cohort" },
+      { value: "Target −20%", label: "query reformulation for task searches" },
+      { value: "≤150 ms", label: "added p95 retrieval latency budget" },
+      { value: "No regression", label: "safety, exact-query precision, or creator diversity" },
+    ],
+    links: [
+      {
+        label: "YouTube Search signals",
+        href: "https://support.google.com/youtube/answer/16090438?hl=en",
+      },
+      {
+        label: "Google retrieval research",
+        href: "https://research.google/pubs/deep-neural-networks-for-youtube-recommendations/",
+      },
+      {
+        label: "Vector Search primer",
+        href: "https://cloud.google.com/vertex-ai/docs/vector-search/overview",
+      },
+    ],
+  },
 ];
 
 export const capabilities = [

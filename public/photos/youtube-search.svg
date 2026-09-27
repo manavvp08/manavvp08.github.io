@@ -1,0 +1,49 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="40" x2="1420" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11131A"/>
+      <stop offset="1" stop-color="#07080B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="420" y1="260" x2="1200" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF4D4D"/>
+      <stop offset="1" stop-color="#FF7A45"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" stroke="#FFFFFF" stroke-opacity="0.045"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <rect width="1600" height="900" rx="36" fill="url(#grid)"/>
+  <circle cx="1255" cy="178" r="180" fill="#FF4D4D" fill-opacity="0.12" filter="url(#glow)"/>
+
+  <text x="110" y="128" fill="#A7AAB3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" letter-spacing="5">PRODUCT TEARDOWN · SEARCH · 2026</text>
+  <text x="110" y="224" fill="#F6F7FB" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">Rethinking YouTube Search</text>
+  <text x="110" y="282" fill="#A7AAB3" font-family="Arial, Helvetica, sans-serif" font-size="30">Route by intent. Retrieve by meaning. Rank with trust.</text>
+
+  <rect x="110" y="356" width="1380" height="118" rx="28" fill="#161922" stroke="#343846" stroke-width="2"/>
+  <circle cx="168" cy="415" r="20" stroke="#E7E9EF" stroke-width="5"/>
+  <path d="M183 430L199 446" stroke="#E7E9EF" stroke-width="5" stroke-linecap="round"/>
+  <text x="230" y="427" fill="#F6F7FB" font-family="Arial, Helvetica, sans-serif" font-size="31">fix a React page that flashes before loading</text>
+  <rect x="1280" y="384" width="154" height="62" rx="31" fill="url(#accent)"/>
+  <text x="1323" y="425" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Search</text>
+
+  <path d="M310 597H1290" stroke="#343846" stroke-width="3" stroke-dasharray="9 14"/>
+  <circle cx="310" cy="597" r="57" fill="#191C25" stroke="#FF6250" stroke-width="3"/>
+  <circle cx="800" cy="597" r="57" fill="#191C25" stroke="#FF6250" stroke-width="3"/>
+  <circle cx="1290" cy="597" r="57" fill="#191C25" stroke="#FF6250" stroke-width="3"/>
+  <text x="310" y="607" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">01</text>
+  <text x="800" y="607" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">02</text>
+  <text x="1290" y="607" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">03</text>
+  <text x="310" y="696" text-anchor="middle" fill="#F6F7FB" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Understand intent</text>
+  <text x="310" y="736" text-anchor="middle" fill="#8D919D" font-family="Arial, Helvetica, sans-serif" font-size="23">exact · task · explore</text>
+  <text x="800" y="696" text-anchor="middle" fill="#F6F7FB" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Retrieve in parallel</text>
+  <text x="800" y="736" text-anchor="middle" fill="#8D919D" font-family="Arial, Helvetica, sans-serif" font-size="23">lexical + transcript meaning</text>
+  <text x="1290" y="696" text-anchor="middle" fill="#F6F7FB" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Rank with quality</text>
+  <text x="1290" y="736" text-anchor="middle" fill="#8D919D" font-family="Arial, Helvetica, sans-serif" font-size="23">relevance · trust · diversity</text>
+
+  <rect x="110" y="814" width="1380" height="2" fill="#2A2D37"/>
+  <text x="110" y="856" fill="#7D818D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="3">INDEPENDENT CONCEPT · UNSHIPPED · TARGETS, NOT RESULTS</text>
+</svg>
