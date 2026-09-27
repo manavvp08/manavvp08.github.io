@@ -197,6 +197,10 @@ export default function CaseStudyDetail({
               )}
 
               {s.figure && <Figure caption={s.figure} image={s.image} />}
+
+              {s.figures?.map((figure) => (
+                <Figure key={figure.image} caption={figure.caption} image={figure.image} />
+              ))}
             </section>
           </Reveal>
         ))}
@@ -260,17 +264,39 @@ export default function CaseStudyDetail({
       )}
 
       <Reveal>
-        <section className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {study.metrics.map((m) => (
-            <div key={m.label} className="bg-bg p-6">
-              <div className="font-display text-4xl font-semibold tracking-tight text-fg">
-                {m.value}
+        <section className="mt-20">
+          {study.metricsTitle && (
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+                Measurement
               </div>
-              <div className="mt-2 text-[13px] leading-relaxed text-muted">
-                {m.label}
-              </div>
+              <h2 className="mt-4 font-display text-[1.6rem] font-semibold leading-[1.15] tracking-tight text-fg sm:text-[2rem]">
+                {study.metricsTitle}
+              </h2>
+              {study.metricsNote && (
+                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg/75">
+                  {study.metricsNote}
+                </p>
+              )}
             </div>
-          ))}
+          )}
+          <div className={`${study.metricsTitle ? "mt-7" : ""} grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4`}>
+            {study.metrics.map((m) => (
+              <div key={m.label} className="bg-bg p-6">
+                {m.kind && (
+                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-accent-strong">
+                    {m.kind}
+                  </div>
+                )}
+                <div className="font-display text-4xl font-semibold tracking-tight text-fg">
+                  {m.value}
+                </div>
+                <div className="mt-2 text-[13px] leading-relaxed text-muted">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       </Reveal>
 

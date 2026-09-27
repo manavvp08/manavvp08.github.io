@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="20" x2="1500" y2="880" gradientUnits="userSpaceOnUse"><stop stop-color="#151821"/><stop offset="1" stop-color="#08090D"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666D7D"/></marker>
+  </defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <text x="90" y="105" fill="#F7F8FC" font-family="Arial" font-size="54" font-weight="700">Illustrative failure mode: words match, intent gets lost</text>
+  <text x="90" y="155" fill="#A4A9B5" font-family="Arial" font-size="28">Hypothesis to validate—not a claim about YouTube's internal implementation.</text>
+
+  <rect x="90" y="230" width="590" height="115" rx="28" fill="#191D27" stroke="#3B4252" stroke-width="3"/>
+  <text x="135" y="279" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="20" letter-spacing="3">USER QUERY</text>
+  <text x="135" y="322" fill="#F7F8FC" font-family="Arial" font-size="30" font-weight="700">“React page flashes before loading”</text>
+  <path d="M680 288H815" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="825" y="230" width="685" height="115" rx="28" fill="#21191A" stroke="#7B3539" stroke-width="3"/>
+  <text x="870" y="279" fill="#FF918A" font-family="ui-monospace, monospace" font-size="20" letter-spacing="3">ILLUSTRATIVE TOKEN VIEW</text>
+  <text x="870" y="322" fill="#F7F8FC" font-family="Arial" font-size="30" font-weight="700">React · page · flashes · loading</text>
+
+  <path d="M1165 345V445" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="210" y="460" width="1180" height="265" rx="30" fill="#12151C" stroke="#323847" stroke-width="3"/>
+  <text x="270" y="522" fill="#A4A9B5" font-family="ui-monospace, monospace" font-size="21" letter-spacing="3">TOP RESULTS</text>
+  <g>
+    <rect x="270" y="557" width="310" height="115" rx="22" fill="#1C202A"/>
+    <circle cx="316" cy="614" r="20" fill="#FF6258"/><text x="316" y="624" text-anchor="middle" fill="white" font-family="Arial" font-size="22" font-weight="700">!</text>
+    <text x="355" y="604" fill="#F7F8FC" font-family="Arial" font-size="28" font-weight="700">Clickbait tutorial</text>
+    <text x="355" y="642" fill="#A4A9B5" font-family="Arial" font-size="21">word overlap, weak fix</text>
+  </g>
+  <g>
+    <rect x="645" y="557" width="310" height="115" rx="22" fill="#1C202A"/>
+    <circle cx="691" cy="614" r="20" fill="#F7C35F"/><text x="691" y="623" text-anchor="middle" fill="#171717" font-family="Arial" font-size="21" font-weight="700">?</text>
+    <text x="730" y="604" fill="#F7F8FC" font-family="Arial" font-size="28" font-weight="700">Outdated guide</text>
+    <text x="730" y="642" fill="#A4A9B5" font-family="Arial" font-size="21">right topic, wrong context</text>
+  </g>
+  <g>
+    <rect x="1020" y="557" width="310" height="115" rx="22" fill="#1C202A"/>
+    <circle cx="1066" cy="614" r="20" fill="#5D7CFF"/><text x="1066" y="623" text-anchor="middle" fill="white" font-family="Arial" font-size="21" font-weight="700">↗</text>
+    <text x="1105" y="604" fill="#F7F8FC" font-family="Arial" font-size="28" font-weight="700">Related Short</text>
+    <text x="1105" y="642" fill="#A4A9B5" font-family="Arial" font-size="21">engaging, not task-complete</text>
+  </g>
+
+  <rect x="380" y="770" width="840" height="70" rx="35" fill="#26191D" stroke="#7B3539" stroke-width="3"/>
+  <text x="800" y="815" text-anchor="middle" fill="#FF918A" font-family="Arial" font-size="29" font-weight="700">PM hypothesis: candidate recall may be weak for meaning-heavy queries</text>
+</svg>

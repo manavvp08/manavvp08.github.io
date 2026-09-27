@@ -1,0 +1,50 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="20" x2="1510" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151821"/><stop offset="1" stop-color="#08090D"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#666D7D"/>
+    </marker>
+    <marker id="red-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#FF6258"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <text x="90" y="105" fill="#F7F8FC" font-family="Arial, sans-serif" font-size="54" font-weight="700">Current journey: the language mismatch</text>
+  <text x="90" y="155" fill="#A4A9B5" font-family="Arial, sans-serif" font-size="28">The user has a real problem, but search expects the right vocabulary.</text>
+
+  <path d="M330 332H520" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M700 332H890" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M1070 332H1260" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M1350 422V620C1350 692 1290 738 1215 738H370C292 738 250 690 250 622V482" stroke="#FF6258" stroke-width="6" stroke-dasharray="14 14" fill="none" marker-end="url(#red-arrow)"/>
+
+  <g>
+    <rect x="90" y="240" width="250" height="190" rx="28" fill="#191D27" stroke="#323847" stroke-width="3"/>
+    <circle cx="142" cy="292" r="24" fill="#5D7CFF"/><text x="142" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="26" font-weight="700">1</text>
+    <text x="125" y="350" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Describe</text>
+    <text x="125" y="394" fill="#A4A9B5" font-family="Arial" font-size="25">the symptom</text>
+  </g>
+  <g>
+    <rect x="530" y="240" width="250" height="190" rx="28" fill="#191D27" stroke="#323847" stroke-width="3"/>
+    <circle cx="582" cy="292" r="24" fill="#5D7CFF"/><text x="582" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="26" font-weight="700">2</text>
+    <text x="565" y="350" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Scan</text>
+    <text x="565" y="394" fill="#A4A9B5" font-family="Arial" font-size="25">mixed results</text>
+  </g>
+  <g>
+    <rect x="970" y="240" width="250" height="190" rx="28" fill="#191D27" stroke="#323847" stroke-width="3"/>
+    <circle cx="1022" cy="292" r="24" fill="#5D7CFF"/><text x="1022" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="26" font-weight="700">3</text>
+    <text x="1005" y="350" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Try</text>
+    <text x="1005" y="394" fill="#A4A9B5" font-family="Arial" font-size="25">a weak match</text>
+  </g>
+  <g>
+    <rect x="1260" y="240" width="250" height="190" rx="28" fill="#26191D" stroke="#7B3539" stroke-width="3"/>
+    <circle cx="1312" cy="292" r="24" fill="#FF6258"/><text x="1312" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="26" font-weight="700">4</text>
+    <text x="1295" y="350" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Go back</text>
+    <text x="1295" y="394" fill="#FF9B94" font-family="Arial" font-size="25">and rephrase</text>
+  </g>
+
+  <rect x="505" y="646" width="590" height="142" rx="28" fill="#211519" stroke="#7B3539" stroke-width="3"/>
+  <text x="800" y="704" text-anchor="middle" fill="#FF8279" font-family="ui-monospace, monospace" font-size="24" letter-spacing="4">FRICTION LOOP</text>
+  <text x="800" y="752" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">More effort · less trust · delayed progress</text>
+</svg>

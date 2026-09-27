@@ -109,7 +109,7 @@ test("YouTube Search teardown is original, transparent, and decision-complete", 
     "Independent concept study",
     "Unshipped proposal",
     "Intent routing",
-    "Evidence and assumptions",
+    "Research Synthesis & Key Insights",
     "Experiment design",
     "Target +8pp",
     "No regression",
@@ -158,7 +158,10 @@ test("YouTube Search teardown shows the PM work through original visual artifact
     "MVP Scope & Product Roadmap",
     "Key Learnings",
   ]) {
-    assert.match(data, new RegExp(expected, "i"));
+    assert.match(
+      data,
+      new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"),
+    );
   }
 
   const detail = readFileSync("app/components/case-study-detail.tsx", "utf8");

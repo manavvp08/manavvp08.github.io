@@ -1,0 +1,39 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="20" x2="1510" y2="880" gradientUnits="userSpaceOnUse"><stop stop-color="#151821"/><stop offset="1" stop-color="#08090D"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666D7D"/></marker>
+  </defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <text x="90" y="105" fill="#F7F8FC" font-family="Arial" font-size="54" font-weight="700">Core architecture: hybrid candidate generation</text>
+  <text x="90" y="155" fill="#A4A9B5" font-family="Arial" font-size="28">Improve recall upstream, then preserve the mature quality and ranking layer.</text>
+
+  <rect x="90" y="330" width="230" height="150" rx="28" fill="#191D27" stroke="#5D7CFF" stroke-width="3"/>
+  <text x="205" y="393" text-anchor="middle" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="20" letter-spacing="2">QUERY</text>
+  <text x="205" y="442" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Intent router</text>
+  <path d="M320 405H440" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+
+  <path d="M450 405V280H555M450 405V530H555" stroke="#666D7D" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="565" y="210" width="355" height="165" rx="28" fill="#191D27" stroke="#444B5B" stroke-width="3"/>
+  <text x="610" y="265" fill="#A4A9B5" font-family="ui-monospace, monospace" font-size="20" letter-spacing="2">PATH A · FAST</text>
+  <text x="610" y="318" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Lexical retrieval</text>
+  <text x="610" y="350" fill="#A4A9B5" font-family="Arial" font-size="22">titles · metadata · exact terms</text>
+
+  <rect x="565" y="455" width="355" height="165" rx="28" fill="#17251F" stroke="#36C98F" stroke-width="4"/>
+  <text x="610" y="510" fill="#76E4B7" font-family="ui-monospace, monospace" font-size="20" letter-spacing="2">PATH B · SELECTIVE</text>
+  <text x="610" y="563" fill="#F7F8FC" font-family="Arial" font-size="34" font-weight="700">Semantic retrieval</text>
+  <text x="610" y="595" fill="#A4A9B5" font-family="Arial" font-size="22">transcript chunks · meaning</text>
+
+  <path d="M920 292H1030V405M920 537H1030V405" stroke="#666D7D" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="1040" y="330" width="230" height="150" rx="28" fill="#191D27" stroke="#5D7CFF" stroke-width="3"/>
+  <text x="1155" y="392" text-anchor="middle" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="20" letter-spacing="2">TOP-K POOL</text>
+  <text x="1155" y="442" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Merge + diversify</text>
+  <path d="M1270 405H1370" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="1380" y="300" width="150" height="210" rx="28" fill="#251F16" stroke="#F7C35F" stroke-width="3"/>
+  <text x="1455" y="365" text-anchor="middle" fill="#F7C35F" font-family="ui-monospace, monospace" font-size="19">RANK</text>
+  <text x="1455" y="414" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="25" font-weight="700">Quality</text>
+  <text x="1455" y="451" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="25" font-weight="700">Safety</text>
+  <text x="1455" y="488" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="25" font-weight="700">Personalize</text>
+
+  <rect x="330" y="700" width="940" height="90" rx="45" fill="#16251F" stroke="#36C98F" stroke-width="3"/>
+  <text x="800" y="756" text-anchor="middle" fill="#76E4B7" font-family="Arial" font-size="29" font-weight="700">Product boundary: add a retrieval lane, not a replacement search engine</text>
+</svg>
