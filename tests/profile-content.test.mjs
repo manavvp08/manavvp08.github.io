@@ -67,3 +67,33 @@ test("Writing is available for Manav's future articles", () => {
   assert.match(commandPalette, /writingNav/);
   assert.match(sitemap, /\$\{SITE_URL\}\/writing/);
 });
+
+test("portfolio navigation separates case studies, projects, and toolkit", () => {
+  const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
+  assert.match(navigation, /id:\s*["']case-studies["'],\s*label:\s*["']Case Studies["']/);
+  assert.match(navigation, /id:\s*["']projects["'],\s*label:\s*["']Projects["']/);
+  assert.match(navigation, /id:\s*["']toolkit["'],\s*label:\s*["']Toolkit["']/);
+  assert.doesNotMatch(navigation, /label:\s*["'](?:Work|Stack)["']/);
+
+  for (const path of [
+    "app/components/sections/case-studies.tsx",
+    "app/components/sections/projects.tsx",
+  ]) {
+    assert.equal(existsSync(path), true, `${path} should exist`);
+  }
+
+  const home = readFileSync("app/page.tsx", "utf8");
+  const data = readFileSync("app/lib/data.ts", "utf8");
+  const caseStudyCards = readFileSync("app/components/case-study-block.tsx", "utf8");
+  const projectCards = readFileSync("app/components/project-list.tsx", "utf8");
+  const askEngine = readFileSync("app/lib/ask-engine.ts", "utf8");
+
+  assert.match(home, /<CaseStudies\s*\/>/);
+  assert.match(home, /<Projects\s*\/>/);
+  assert.match(data, /category:\s*["']Real work["']/);
+  assert.match(caseStudyCards, /c\.category/);
+  assert.match(caseStudyCards, /c\.status/);
+  assert.match(projectCards, /p\.status/);
+  assert.match(askEngine, /\/#toolkit/);
+  assert.doesNotMatch(askEngine, /\/#stack/);
+});
