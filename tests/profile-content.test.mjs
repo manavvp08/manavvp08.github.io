@@ -193,7 +193,8 @@ test("YouTube Search diagrams keep long labels inside their visual containers", 
   );
 
   assert.match(currentJourney, /textLength="520"[^>]*>More effort/);
-  assert.match(failureMode, /textLength="740"[^>]*>PM hypothesis/);
+  assert.match(failureMode, />PM HYPOTHESIS<\/text>/);
+  assert.match(failureMode, />Meaning-heavy queries may weaken candidate recall<\/text>/);
   assert.match(targetJourney, />Describe the<\/text>/);
   assert.match(targetJourney, />problem naturally<\/text>/);
   assert.match(targetJourney, /textLength="490"[^>]*>Right video/);

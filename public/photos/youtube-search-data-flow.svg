@@ -13,12 +13,12 @@
   <g>
     <rect x="90" y="260" width="260" height="120" rx="24" fill="#191D27" stroke="#3B4252" stroke-width="3"/>
     <text x="220" y="310" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Transcript</text>
-    <text x="220" y="350" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">language + timestamps</text>
+    <text x="220" y="350" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22" textLength="200" lengthAdjust="spacingAndGlyphs">language + timestamps</text>
   </g>
   <g>
     <rect x="520" y="260" width="210" height="120" rx="24" fill="#191D27" stroke="#3B4252" stroke-width="3"/>
     <text x="625" y="310" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Chunk</text>
-    <text x="625" y="350" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">coherent moments</text>
+    <text x="625" y="350" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22" textLength="170" lengthAdjust="spacingAndGlyphs">coherent moments</text>
   </g>
   <g>
     <rect x="900" y="260" width="210" height="120" rx="24" fill="#191D27" stroke="#5D7CFF" stroke-width="3"/>
@@ -34,13 +34,13 @@
   <path d="M90 435H1510" stroke="#343A49" stroke-width="3"/>
   <text x="90" y="500" fill="#76E4B7" font-family="ui-monospace, monospace" font-size="22" letter-spacing="4">ONLINE · SEARCH REQUEST</text>
   <path d="M330 595H460M690 595H820M1050 595H1180" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
-  <g><rect x="90" y="535" width="240" height="120" rx="24" fill="#191D27" stroke="#3B4252" stroke-width="3"/><text x="210" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Query + intent</text><text x="210" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">route with confidence</text></g>
+  <g><rect x="90" y="535" width="240" height="120" rx="24" fill="#191D27" stroke="#3B4252" stroke-width="3"/><text x="210" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="190" lengthAdjust="spacingAndGlyphs">Query + intent</text><text x="210" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22" textLength="190" lengthAdjust="spacingAndGlyphs">route with confidence</text></g>
   <g><rect x="470" y="535" width="220" height="120" rx="24" fill="#17251F" stroke="#36C98F" stroke-width="4"/><text x="580" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Retrieve</text><text x="580" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">lexical + semantic</text></g>
   <g><rect x="830" y="535" width="220" height="120" rx="24" fill="#191D27" stroke="#5D7CFF" stroke-width="3"/><text x="940" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Rank Top-K</text><text x="940" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">quality + diversity</text></g>
-  <g><rect x="1190" y="535" width="320" height="120" rx="24" fill="#251F16" stroke="#F7C35F" stroke-width="3"/><text x="1350" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Results + moment</text><text x="1350" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">help the user judge fit</text></g>
+  <g><rect x="1190" y="535" width="320" height="120" rx="24" fill="#251F16" stroke="#F7C35F" stroke-width="3"/><text x="1350" y="586" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="250" lengthAdjust="spacingAndGlyphs">Results + moment</text><text x="1350" y="626" text-anchor="middle" fill="#A4A9B5" font-family="Arial" font-size="22">help the user judge fit</text></g>
 
   <path d="M1350 655V745H580V665" stroke="#36C98F" stroke-width="5" fill="none" stroke-dasharray="12 12" marker-end="url(#green)"/>
   <rect x="720" y="705" width="490" height="92" rx="30" fill="#16251F" stroke="#36C98F" stroke-width="3"/>
   <text x="965" y="745" text-anchor="middle" fill="#76E4B7" font-family="ui-monospace, monospace" font-size="20" letter-spacing="2">FEEDBACK LOOP</text>
-  <text x="965" y="777" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="23">success · reformulation · satisfaction</text>
+  <text x="965" y="777" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="23" textLength="380" lengthAdjust="spacingAndGlyphs">success · reformulation · satisfaction</text>
 </svg>

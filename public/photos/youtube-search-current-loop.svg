@@ -46,5 +46,5 @@
 
   <rect x="505" y="646" width="590" height="142" rx="28" fill="#211519" stroke="#7B3539" stroke-width="3"/>
   <text x="800" y="704" text-anchor="middle" fill="#FF8279" font-family="ui-monospace, monospace" font-size="24" letter-spacing="4">FRICTION LOOP</text>
-  <text x="800" y="752" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">More effort · less trust · delayed progress</text>
+  <text x="800" y="752" text-anchor="middle" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="520" lengthAdjust="spacingAndGlyphs">More effort · less trust · delayed progress</text>
 </svg>

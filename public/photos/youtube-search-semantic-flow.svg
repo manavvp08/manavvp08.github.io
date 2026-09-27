@@ -10,35 +10,35 @@
   <g>
     <rect x="70" y="260" width="280" height="190" rx="28" fill="#191D27" stroke="#3B4252" stroke-width="3"/>
     <text x="110" y="310" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="19" letter-spacing="3">01 · INTENT</text>
-    <text x="110" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Natural-language</text>
-    <text x="110" y="405" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">problem</text>
+    <text x="110" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Describe the</text>
+    <text x="110" y="405" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">problem naturally</text>
   </g>
   <path d="M350 355H435" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
   <g>
     <rect x="445" y="260" width="280" height="190" rx="28" fill="#191D27" stroke="#5D7CFF" stroke-width="3"/>
     <text x="485" y="310" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="19" letter-spacing="3">02 · UNDERSTAND</text>
-    <text x="485" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Intent + context</text>
+    <text x="485" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="200" lengthAdjust="spacingAndGlyphs">Intent + context</text>
     <text x="485" y="407" fill="#A4A9B5" font-family="Arial" font-size="23">not isolated tokens</text>
   </g>
   <path d="M725 355H810" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
   <g>
     <rect x="820" y="260" width="280" height="190" rx="28" fill="#17251F" stroke="#36C98F" stroke-width="4"/>
     <text x="860" y="310" fill="#76E4B7" font-family="ui-monospace, monospace" font-size="19" letter-spacing="3">03 · RETRIEVE</text>
-    <text x="860" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Transcript-level</text>
+    <text x="860" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="200" lengthAdjust="spacingAndGlyphs">Transcript-level</text>
     <text x="860" y="407" fill="#A4A9B5" font-family="Arial" font-size="23">meaning + keywords</text>
   </g>
   <path d="M1100 355H1185" stroke="#666D7D" stroke-width="5" marker-end="url(#arrow)"/>
   <g>
     <rect x="1195" y="260" width="335" height="190" rx="28" fill="#191D27" stroke="#3B4252" stroke-width="3"/>
     <text x="1235" y="310" fill="#8EA2FF" font-family="ui-monospace, monospace" font-size="19" letter-spacing="3">04 · RANK</text>
-    <text x="1235" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700">Relevant + trusted</text>
+    <text x="1235" y="365" fill="#F7F8FC" font-family="Arial" font-size="31" font-weight="700" textLength="240" lengthAdjust="spacingAndGlyphs">Relevant + trusted</text>
     <text x="1235" y="407" fill="#A4A9B5" font-family="Arial" font-size="23">quality signals preserved</text>
   </g>
 
   <path d="M1360 450V560C1360 615 1320 640 1260 640H1000" stroke="#36C98F" stroke-width="5" marker-end="url(#arrow)"/>
   <rect x="415" y="565" width="590" height="190" rx="30" fill="#16251F" stroke="#36C98F" stroke-width="4"/>
   <text x="465" y="620" fill="#76E4B7" font-family="ui-monospace, monospace" font-size="20" letter-spacing="3">SUCCESSFUL SEARCH</text>
-  <text x="465" y="680" fill="#F7F8FC" font-family="Arial" font-size="38" font-weight="700">Right video on the first attempt</text>
+  <text x="465" y="680" fill="#F7F8FC" font-family="Arial" font-size="38" font-weight="700" textLength="490" lengthAdjust="spacingAndGlyphs">Right video on the first attempt</text>
   <text x="465" y="724" fill="#B9C0CB" font-family="Arial" font-size="25">Matched moment explains why it belongs</text>
   <path d="M415 662H280C225 662 200 620 200 565V470" stroke="#36C98F" stroke-width="5" marker-end="url(#arrow)"/>
   <text x="110" y="548" fill="#76E4B7" font-family="Arial" font-size="22">Feedback improves</text>

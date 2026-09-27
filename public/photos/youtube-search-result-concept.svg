@@ -15,7 +15,7 @@
   <text x="482" y="418" text-anchor="middle" fill="#B9C0CB" font-family="Arial" font-size="22">Beginner</text>
   <rect x="600" y="382" width="195" height="56" rx="28" fill="#191D27" stroke="#3B4252" stroke-width="2"/>
   <text x="697" y="418" text-anchor="middle" fill="#B9C0CB" font-family="Arial" font-size="22">Performance</text>
-  <text x="1195" y="418" fill="#858B99" font-family="Arial" font-size="22">Intent chips appear only when useful</text>
+  <text x="1400" y="418" text-anchor="end" fill="#858B99" font-family="Arial" font-size="22">Shown only when useful</text>
 
   <rect x="170" y="485" width="370" height="225" rx="24" fill="#20242E"/>
   <rect x="205" y="522" width="300" height="150" rx="18" fill="#151821" stroke="#444B5B" stroke-width="2"/>
@@ -30,5 +30,5 @@
   <text x="625" y="680" fill="#F7F8FC" font-family="Arial" font-size="22">Why the first render flashes—and the two fixes that remove it</text>
 
   <rect x="1130" y="735" width="300" height="42" rx="21" fill="#251F16"/>
-  <text x="1280" y="763" text-anchor="middle" fill="#F7C35F" font-family="Arial" font-size="19" font-weight="700">PM choice: explain, do not replace</text>
+  <text x="1280" y="763" text-anchor="middle" fill="#F7C35F" font-family="Arial" font-size="19" font-weight="700" textLength="250" lengthAdjust="spacingAndGlyphs">PM choice: explain, do not replace</text>
 </svg>
