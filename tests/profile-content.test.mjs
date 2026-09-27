@@ -128,11 +128,11 @@ test("YouTube Search teardown shows the PM work through original visual artifact
   const data = readFileSync("app/lib/data.ts", "utf8");
   const diagrams = [
     "youtube-search-current-loop.svg",
-    "youtube-search-prioritization.svg",
-    "youtube-search-intent-router.svg",
+    "youtube-search-keyword-flow.svg",
+    "youtube-search-semantic-flow.svg",
     "youtube-search-result-concept.svg",
     "youtube-search-architecture.svg",
-    "youtube-search-experiment.svg",
+    "youtube-search-data-flow.svg",
   ];
 
   for (const diagram of diagrams) {
@@ -150,6 +150,9 @@ test("YouTube Search teardown shows the PM work through original visual artifact
   ]) {
     assert.match(data, new RegExp(expected, "i"));
   }
+
+  const detail = readFileSync("app/components/case-study-detail.tsx", "utf8");
+  assert.match(detail, /s\.figures/);
 });
 
 test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
