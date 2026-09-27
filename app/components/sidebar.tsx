@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
@@ -109,8 +110,17 @@ export default function Sidebar() {
             onClick={() => go("intro")}
             className="group flex items-center gap-3.5 text-left"
           >
-            <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border border-border bg-surface-2 font-display text-sm font-semibold text-fg">
-              MP
+            <span className="relative h-12 w-12 shrink-0">
+              <span className="absolute inset-0 overflow-hidden rounded-full border border-border bg-surface-2">
+                <Image
+                  src="/sidebar-profile.jpg"
+                  alt="Manav Purswani"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                  priority
+                />
+              </span>
               <span className="absolute bottom-0 right-0 grid h-3.5 w-3.5 place-items-center rounded-full border-2 border-bg bg-bg">
                 <span className="pulse-dot h-2 w-2 rounded-full bg-success" />
               </span>
