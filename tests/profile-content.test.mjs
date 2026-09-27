@@ -99,7 +99,7 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
-test("Manav's supplied portrait appears only in the desktop sidebar", () => {
+test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
   const portraitPath = "public/sidebar-profile.jpg";
   assert.equal(existsSync(portraitPath), true, `${portraitPath} should exist`);
 
@@ -107,7 +107,15 @@ test("Manav's supplied portrait appears only in the desktop sidebar", () => {
   assert.match(sidebar, /src=["']\/sidebar-profile\.jpg["']/);
   assert.match(sidebar, /alt=["']Manav Purswani["']/);
   assert.match(sidebar, /className=["']object-cover object-top["']/);
-  assert.equal(source.match(/\/sidebar-profile\.jpg/g)?.length, 1);
+  const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
+  const styles = readFileSync("app/globals.css", "utf8");
+  assert.match(intro, /src=["']\/sidebar-profile\.jpg["']/);
+  assert.match(intro, /className=["'][^"']*duotone[^"']*["']/);
+  assert.doesNotMatch(intro, />\s*MP\s*</);
+  assert.equal(source.match(/\/sidebar-profile\.jpg/g)?.length, 2);
+  assert.match(styles, /\[data-theme=["']dark["']\]\s+\.duotone/);
+  assert.match(styles, /\[data-theme=["']dark["']\]\s+\.group:hover\s+\.duotone/);
+  assert.match(styles, /grayscale\(0\)/);
 
   const digest = createHash("sha256").update(readFileSync(portraitPath)).digest("hex");
   assert.equal(digest, "4a32529690147af67cb2d079ef63019d6f99f209e4d4ea11b00f3f62a7f55cda");
