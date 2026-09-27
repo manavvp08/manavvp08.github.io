@@ -106,6 +106,7 @@ test("Manav's supplied portrait appears only in the desktop sidebar", () => {
   const sidebar = readFileSync("app/components/sidebar.tsx", "utf8");
   assert.match(sidebar, /src=["']\/sidebar-profile\.jpg["']/);
   assert.match(sidebar, /alt=["']Manav Purswani["']/);
+  assert.match(sidebar, /className=["']object-cover object-top["']/);
   assert.equal(source.match(/\/sidebar-profile\.jpg/g)?.length, 1);
 
   const digest = createHash("sha256").update(readFileSync(portraitPath)).digest("hex");
