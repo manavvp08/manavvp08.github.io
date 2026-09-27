@@ -147,12 +147,24 @@ test("YouTube Search teardown shows the PM work through original visual artifact
     "guardrail metrics",
     "kill criteria",
     "opportunity sizing",
+    "Problem Statement & User Pain",
+    "Jobs to Be Done (JTBD)",
+    "Product Scope: Goals & Non-Goals",
+    "Product Strategy & Target Journey",
+    "Key Product Decisions & Trade-offs",
+    "Technical & Product Architecture",
+    "Success Metrics & Guardrails",
+    "Strategic Trade-off Analysis",
+    "MVP Scope & Product Roadmap",
+    "Key Learnings",
   ]) {
     assert.match(data, new RegExp(expected, "i"));
   }
 
   const detail = readFileSync("app/components/case-study-detail.tsx", "utf8");
   assert.match(detail, /s\.figures/);
+  assert.match(detail, /study\.metricsTitle/);
+  assert.match(detail, /m\.kind/);
 });
 
 test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
