@@ -117,7 +117,7 @@ export default function Sidebar() {
                   alt="Manav Purswani"
                   fill
                   sizes="48px"
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority
                 />
               </span>
