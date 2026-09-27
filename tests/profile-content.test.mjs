@@ -124,6 +124,34 @@ test("YouTube Search teardown is original, transparent, and decision-complete", 
   assert.doesNotMatch(source, /Kashish Kataria|kashishpm/i);
 });
 
+test("YouTube Search teardown shows the PM work through original visual artifacts", () => {
+  const data = readFileSync("app/lib/data.ts", "utf8");
+  const diagrams = [
+    "youtube-search-current-loop.svg",
+    "youtube-search-prioritization.svg",
+    "youtube-search-intent-router.svg",
+    "youtube-search-result-concept.svg",
+    "youtube-search-architecture.svg",
+    "youtube-search-experiment.svg",
+  ];
+
+  for (const diagram of diagrams) {
+    assert.equal(existsSync(`public/photos/${diagram}`), true, `${diagram} should exist`);
+    assert.match(data, new RegExp(diagram.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  for (const expected of [
+    "I started with a familiar frustration",
+    "North Star",
+    "MVP",
+    "guardrail metrics",
+    "kill criteria",
+    "opportunity sizing",
+  ]) {
+    assert.match(data, new RegExp(expected, "i"));
+  }
+});
+
 test("Manav's supplied portrait is limited to the sidebar and profile panel", () => {
   const portraitPath = "public/sidebar-profile.jpg";
   assert.equal(existsSync(portraitPath), true, `${portraitPath} should exist`);
