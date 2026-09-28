@@ -1,6 +1,6 @@
 export const profile = {
   name: "Manav Purswani",
-  location: "Mumbai, Maharashtra, India (Open to relocation)",
+  location: "Mumbai, India (Open to relocation)",
   timezone: "Asia/Kolkata",
   email: "manavp080@gmail.com",
   role: "Business System Analyst",
