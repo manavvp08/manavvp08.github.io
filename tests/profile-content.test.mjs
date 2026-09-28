@@ -99,23 +99,30 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
-test("homepage leads with About and presents recruiter-ready Experience", () => {
+test("homepage keeps Overview, About, and recruiter-ready Experience distinct", () => {
   const home = readFileSync("app/page.tsx", "utf8");
   const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
   const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
-  const experience = readFileSync("app/components/sections/about.tsx", "utf8");
+  const experience = readFileSync("app/components/sections/experience.tsx", "utf8");
+  const about = readFileSync("app/components/sections/about.tsx", "utf8");
 
+  assert.match(navigation, /id:\s*["']intro["'],\s*label:\s*["']Overview["']/);
   assert.match(navigation, /id:\s*["']about["'],\s*label:\s*["']About["']/);
   assert.match(
     navigation,
     /id:\s*["']experience["'],\s*label:\s*["']Experience["']/,
   );
-  assert.doesNotMatch(navigation, /label:\s*["']Overview["']/);
-  assert.match(intro, /<Section id=["']about["']/);
+  assert.match(intro, /<Section id=["']intro["']/);
+  assert.match(about, /<Section id=["']about["']/);
+  assert.match(about, /Find the friction\. Prove the case\. Ship the fix\./);
   assert.doesNotMatch(intro, /GithubHeatmap|Lately on GitHub/);
   assert.ok(
     home.indexOf("<Toolkit />") < home.indexOf("<Experience />"),
     "Experience should follow Toolkit",
+  );
+  assert.ok(
+    home.indexOf("<Experience />") < home.indexOf("<About />"),
+    "About should remain distinct from Experience",
   );
 
   for (const expected of [
