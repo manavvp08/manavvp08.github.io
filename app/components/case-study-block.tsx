@@ -7,9 +7,16 @@ import { useRef, useState } from "react";
 import Reveal from "./reveal";
 import { caseStudies } from "../lib/data";
 
+const caseStudyTypes = ["All", ...new Set(caseStudies.map((c) => c.category))];
+
 export default function CaseStudyBlock() {
   const badgeRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const [selectedType, setSelectedType] = useState("All");
+  const filteredStudies =
+    selectedType === "All"
+      ? caseStudies
+      : caseStudies.filter((c) => c.category === selectedType);
 
   const onMove = (e: React.MouseEvent) => {
     const el = badgeRef.current;
@@ -32,8 +39,39 @@ export default function CaseStudyBlock() {
         </div>
       </div>
 
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-y border-border py-3">
+        <div
+          className="flex flex-wrap gap-2"
+          role="group"
+          aria-label="Filter case studies by type"
+        >
+          {caseStudyTypes.map((type) => {
+            const selected = selectedType === type;
+
+            return (
+              <button
+                key={type}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => setSelectedType(type)}
+                className={`rounded-full border px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] transition-colors ${
+                  selected
+                    ? "border-accent bg-accent text-accent-fg"
+                    : "border-border bg-surface text-muted hover:border-border-strong hover:text-fg"
+                }`}
+              >
+                {type}
+              </button>
+            );
+          })}
+        </div>
+        <span aria-live="polite" className="font-mono text-[10px] uppercase tracking-[0.14em] text-faint">
+          {filteredStudies.length} {filteredStudies.length === 1 ? "study" : "studies"}
+        </span>
+      </div>
+
       <div className="grid gap-y-8 md:grid-cols-2 md:gap-x-6">
-        {caseStudies.map((c, i) => (
+        {filteredStudies.map((c, i) => (
           <Reveal key={c.slug} delay={(i % 2) * 70}>
             <Link
               href={`/work/${c.slug}`}
