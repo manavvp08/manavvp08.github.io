@@ -99,6 +99,16 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
+test("case studies can be filtered by their evidence type", () => {
+  const cards = readFileSync("app/components/case-study-block.tsx", "utf8");
+
+  assert.match(cards, /new Set\(caseStudies\.map/);
+  assert.match(cards, /selectedType/);
+  assert.match(cards, /c\.category === selectedType/);
+  assert.match(cards, /aria-pressed/);
+  assert.match(cards, /Filter case studies by type/);
+});
+
 test("Toolkit is a four-column, point-form PM capability scan", () => {
   const toolkit = readFileSync("app/components/sections/stack.tsx", "utf8");
 
