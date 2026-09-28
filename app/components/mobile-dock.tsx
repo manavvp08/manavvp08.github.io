@@ -20,7 +20,7 @@ export default function MobileDock() {
   const spy = useScrollSpy(SECTION_IDS);
   const [open, setOpen] = useState(false);
   const onWriting = pathname.startsWith(writingNav.href);
-  const activeId = onWriting ? writingNav.id : pathname === "/" ? spy : "intro";
+  const activeId = onWriting ? writingNav.id : pathname === "/" ? spy : "about";
   const active = onWriting
     ? writingNav
     : navItems.find((n) => n.id === activeId) ?? navItems[0];
@@ -76,7 +76,7 @@ export default function MobileDock() {
     if (pathname === "/" && document.getElementById(id)) {
       scrollToSection(id);
     } else {
-      router.push(id === "intro" ? "/" : `/#${id}`);
+      router.push(id === "about" ? "/" : `/#${id}`);
     }
   };
 

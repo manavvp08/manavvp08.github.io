@@ -118,6 +118,6 @@ export function scrollToSection(id: string) {
   }
 
   if (typeof history !== "undefined") {
-    history.replaceState(null, "", id === "intro" ? " " : `#${id}`);
+    history.replaceState(null, "", id === "about" ? " " : `#${id}`);
   }
 }

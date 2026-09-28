@@ -3,7 +3,6 @@ import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import Reveal from "../reveal";
 import CountUp from "../count-up";
 import Button from "../button";
-import GithubHeatmap from "../github-heatmap";
 import { Section } from "./section-shell";
 import { profile, facts, links } from "../../lib/data";
 
@@ -44,7 +43,7 @@ function ProfilePanel({ mobile = false }: { mobile?: boolean }) {
 
 export default function Intro() {
   return (
-    <Section id="intro" className="pt-8 pb-16 sm:pt-14 sm:pb-32">
+    <Section id="about" className="pt-8 pb-16 sm:pt-14 sm:pb-32">
       <div className="lg:hidden">
         <ProfilePanel mobile />
       </div>
@@ -133,11 +132,6 @@ export default function Intro() {
         </div>
       </Reveal>
 
-      <Reveal>
-        <div className="mt-12">
-          <GithubHeatmap user="manavvp08" />
-        </div>
-      </Reveal>
     </Section>
   );
 }

@@ -1,5 +1,4 @@
 import {
-  LayoutGrid,
   Briefcase,
   FolderKanban,
   Layers,
@@ -10,11 +9,11 @@ import {
 } from "lucide-react";
 
 export type IconKey =
-  | "overview"
   | "case-studies"
   | "projects"
   | "toolkit"
   | "about"
+  | "experience"
   | "contact"
   | "writing";
 
@@ -26,11 +25,11 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { id: "intro", label: "Overview", icon: "overview", key: "01" },
+  { id: "about", label: "About", icon: "about", key: "01" },
   { id: "case-studies", label: "Case Studies", icon: "case-studies", key: "02" },
   { id: "projects", label: "Projects", icon: "projects", key: "03" },
   { id: "toolkit", label: "Toolkit", icon: "toolkit", key: "04" },
-  { id: "about", label: "About", icon: "about", key: "05" },
+  { id: "experience", label: "Experience", icon: "experience", key: "05" },
   { id: "contact", label: "Contact", icon: "contact", key: "06" },
 ];
 
@@ -44,11 +43,11 @@ export const writingNav = {
 export const SECTION_IDS = navItems.map((n) => n.id);
 
 const ICONS: Record<IconKey, LucideIcon> = {
-  overview: LayoutGrid,
   "case-studies": Briefcase,
   projects: FolderKanban,
   toolkit: Layers,
   about: User,
+  experience: Briefcase,
   contact: Mail,
   writing: PenLine,
 };

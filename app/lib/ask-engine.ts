@@ -35,9 +35,9 @@ const passages: Passage[] = [
   })),
   {
     id: "experience",
-    label: "About",
-    href: "/#about",
-    text: "I am a Business System Analyst at Deloitte with more than a year of experience in enterprise systems transformation. I moved from an internship into the analyst role in January 2026.",
+    label: "Experience",
+    href: "/#experience",
+    text: "I am a Business Systems Analyst at Deloitte with more than a year of experience in enterprise systems transformation. I moved from an internship into the analyst role in January 2026.",
     keywords: ["experience", "deloitte", "business analyst", "intern", "role", "current"],
   },
   {
@@ -56,8 +56,8 @@ const passages: Passage[] = [
   },
   {
     id: "education",
-    label: "About",
-    href: "/#about",
+    label: "Experience",
+    href: "/#experience",
     text: "I completed a BE in Computer Engineering at Thadomal Shahani Engineering College from 2021 to 2025, following Engineering Science studies through the University of Cambridge from 2019 to 2021.",
     keywords: ["education", "college", "degree", "tsec", "cambridge", "computer engineering"],
   },
@@ -150,7 +150,7 @@ export function ask(rawQuery: string): Answer {
   if (lower.includes("where") || lower.includes("location") || lower.includes("based")) {
     return {
       text: `Manav is based in ${profile.location}.`,
-      sources: [{ label: "Overview", href: "/" }],
+      sources: [{ label: "About", href: "/" }],
     };
   }
   if (lower.includes("hire") || lower.includes("why manav") || lower.includes("stand out")) {
