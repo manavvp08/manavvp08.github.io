@@ -96,16 +96,14 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <ul className="mt-6 space-y-3.5">
+                <ul className="mt-4 space-y-1.5">
                   {role.achievements.map((achievement) => (
                     <li
                       key={achievement}
-                      className="grid grid-cols-[12px_1fr] gap-2.5 text-[14px] leading-relaxed text-muted sm:text-[15px]"
+                      className="text-[13px] leading-[1.55] text-muted sm:text-[13.5px]"
                     >
-                      <span aria-hidden className="text-[11px] text-accent">
-                        →
-                      </span>
-                      <span>{achievement}</span>
+                      <span aria-hidden className="mr-1 text-[10px] text-accent">→</span>
+                      {achievement}
                     </li>
                   ))}
                 </ul>
