@@ -99,6 +99,43 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
+test("homepage leads with About and presents recruiter-ready Experience", () => {
+  const home = readFileSync("app/page.tsx", "utf8");
+  const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
+  const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
+  const experience = readFileSync("app/components/sections/about.tsx", "utf8");
+
+  assert.match(navigation, /id:\s*["']about["'],\s*label:\s*["']About["']/);
+  assert.match(
+    navigation,
+    /id:\s*["']experience["'],\s*label:\s*["']Experience["']/,
+  );
+  assert.doesNotMatch(navigation, /label:\s*["']Overview["']/);
+  assert.match(intro, /<Section id=["']about["']/);
+  assert.doesNotMatch(intro, /GithubHeatmap|Lately on GitHub/);
+  assert.ok(
+    home.indexOf("<Toolkit />") < home.indexOf("<Experience />"),
+    "Experience should follow Toolkit",
+  );
+
+  for (const expected of [
+    "Deloitte logo",
+    "Business Systems Analyst",
+    "Role progression",
+    "79",
+    "100%",
+    "35%",
+    "40%",
+  ]) {
+    assert.match(
+      experience,
+      new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")),
+    );
+  }
+  assert.match(experience, /text-fg/);
+  assert.match(experience, /bg-surface/);
+});
+
 test("YouTube Search teardown is original, transparent, and decision-complete", () => {
   const data = readFileSync("app/lib/data.ts", "utf8");
 
