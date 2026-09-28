@@ -99,7 +99,7 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
-test("homepage keeps Overview, About, and recruiter-ready Experience distinct", () => {
+test("homepage keeps Overview, About, and a recruiter-ready Experience timeline distinct", () => {
   const home = readFileSync("app/page.tsx", "utf8");
   const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
   const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
@@ -126,9 +126,16 @@ test("homepage keeps Overview, About, and recruiter-ready Experience distinct", 
   );
 
   for (const expected of [
+    "The Journey.",
+    "From enterprise systems delivery to product thinking.",
     "Deloitte logo",
     "Business Systems Analyst",
-    "Role progression",
+    "Internship",
+    "Academic Background",
+    "→",
+    "Requirements",
+    "UAT",
+    "Release readiness",
     "79",
     "100%",
     "35%",
@@ -139,6 +146,7 @@ test("homepage keeps Overview, About, and recruiter-ready Experience distinct", 
       new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")),
     );
   }
+  assert.doesNotMatch(experience, /Role progression|Business Systems Intern/);
   assert.match(experience, /text-fg/);
   assert.match(experience, /bg-surface/);
 });
