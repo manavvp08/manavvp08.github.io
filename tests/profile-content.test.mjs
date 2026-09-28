@@ -99,6 +99,29 @@ test("portfolio navigation separates case studies, projects, and toolkit", () =>
   assert.doesNotMatch(askEngine, /\/#stack/);
 });
 
+test("Toolkit is a four-column, point-form PM capability scan", () => {
+  const toolkit = readFileSync("app/components/sections/stack.tsx", "utf8");
+
+  for (const expected of [
+    "What I bring.",
+    "Analytics & Experimentation",
+    "Funnels, cohorts, retention",
+    "A/B testing",
+    "Product Management",
+    "PRD writing",
+    "Technical & Domain",
+    "SAP SD (Order-to-Cash)",
+    "AI & Architecture",
+    "LangGraph / Agentic AI",
+    "Mixpanel / Amplitude, SQL, Jira",
+  ]) {
+    assert.match(toolkit, new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.match(toolkit, /lg:grid-cols-4/);
+  assert.doesNotMatch(toolkit, /capabilities|dailyDrivers/);
+});
+
 test("homepage keeps Overview, About, and a recruiter-ready Experience timeline distinct", () => {
   const home = readFileSync("app/page.tsx", "utf8");
   const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
