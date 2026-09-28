@@ -150,7 +150,7 @@ export function ask(rawQuery: string): Answer {
   if (lower.includes("where") || lower.includes("location") || lower.includes("based")) {
     return {
       text: `Manav is based in ${profile.location}.`,
-      sources: [{ label: "About", href: "/" }],
+      sources: [{ label: "Overview", href: "/" }],
     };
   }
   if (lower.includes("hire") || lower.includes("why manav") || lower.includes("stand out")) {

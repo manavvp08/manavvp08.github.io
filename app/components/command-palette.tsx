@@ -42,7 +42,7 @@ export default function CommandPalette() {
       if (pathname === "/" && document.getElementById(id)) {
         scrollToSection(id);
       } else {
-        router.push(id === "about" ? "/" : `/#${id}`);
+        router.push(id === "intro" ? "/" : `/#${id}`);
       }
     };
     const nav: Item[] = [
@@ -167,7 +167,7 @@ export default function CommandPalette() {
           if (pathnameRef.current === "/" && document.getElementById(item.id)) {
             scrollToSection(item.id);
           } else {
-            router.push(item.id === "about" ? "/" : `/#${item.id}`);
+            router.push(item.id === "intro" ? "/" : `/#${item.id}`);
           }
         }
       }

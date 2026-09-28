@@ -17,7 +17,7 @@ const channels = [
 export default function Contact() {
   return (
     <Section id="contact" className="pb-24 pt-16 sm:pb-32 sm:pt-32">
-      <Kicker index="06" label="Contact" />
+      <Kicker index="07" label="Contact" />
 
       <Reveal delay={60}>
         <h2 className="mt-6 max-w-2xl font-display text-[2.2rem] leading-[1.04] tracking-tight text-balance sm:text-[3rem]">
@@ -88,7 +88,7 @@ export default function Contact() {
           <p className="text-sm leading-relaxed text-muted">Thanks for stopping by.</p>
           <div className="mt-3 flex items-center justify-between">
             <span className="font-mono text-sm text-fg">- Manav</span>
-            <a href="#about" className="inline-flex items-center gap-1.5 font-mono text-xs text-muted transition-colors hover:text-fg">
+            <a href="#intro" className="inline-flex items-center gap-1.5 font-mono text-xs text-muted transition-colors hover:text-fg">
               <ArrowUp aria-hidden className="h-3.5 w-3.5" /> top
             </a>
           </div>

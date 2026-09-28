@@ -1,9 +1,11 @@
-# About and Experience redesign
+# Overview, About, and Experience redesign
 
 ## Acceptance criteria
 
-- The homepage starts with About and no longer exposes Overview as a navigation section.
-- Experience follows Toolkit and makes Deloitte, the current role, progression, and delivery outcomes easy to scan.
+- Overview and About remain separate navigation sections.
+- Experience follows Toolkit and uses a connected, card-free timeline for Deloitte role progression.
+- The heading is “The Journey.”, the earlier role is labelled “Internship”, and achievements use compact `→` markers.
+- Company logos sit beside role titles, PM skills remain scannable, and Academic Background stays a subtopic within Experience.
 - The GitHub activity banner is not rendered.
 - The Experience layout remains legible in light mode, dark mode, and a 390 px mobile viewport.
 
@@ -11,11 +13,11 @@
 
 | Check | Result |
 | --- | --- |
-| RED: `npm test` failed on the new homepage structure test | PASS — commit `c9b4028` |
+| RED: `npm test` failed on the separate-section requirement | PASS — commit `a210211` |
+| RED: `npm test` failed on the timeline design requirement | PASS — commit `8458835` |
 | GREEN: `npm test` | PASS — 11/11 |
 | TypeScript: `npm run lint` | PASS |
 | GitHub Pages production build | PASS — 12 static pages generated |
 | Dependency audit | PASS — 0 vulnerabilities |
-| Browser: desktop light and dark themes | PASS |
+| Browser: desktop dark theme | PASS |
 | Browser: 390 × 844 mobile viewport | PASS — no horizontal overflow |
-| Browser console errors | PASS — none |

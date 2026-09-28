@@ -19,7 +19,7 @@ function useGoToSection() {
     if (pathname === "/" && document.getElementById(id)) {
       scrollToSection(id);
     } else {
-      router.push(id === "about" ? "/" : `/#${id}`);
+      router.push(id === "intro" ? "/" : `/#${id}`);
     }
   };
 }
@@ -107,7 +107,7 @@ export default function Sidebar() {
       <aside className="sticky top-0 hidden h-[100dvh] flex-col justify-between border-r border-border px-8 py-8 lg:flex">
         <div>
           <button
-            onClick={() => go("about")}
+            onClick={() => go("intro")}
             className="group flex items-center gap-3.5 text-left"
           >
             <span className="relative h-12 w-12 shrink-0">
@@ -181,7 +181,7 @@ export default function Sidebar() {
 
       <header className="sticky top-0 z-30 flex items-center justify-between border-b border-border bg-bg px-5 py-3.5 lg:hidden">
         <button
-          onClick={() => go("about")}
+          onClick={() => go("intro")}
           className="font-display text-[17px] font-semibold tracking-tight text-fg"
         >
           {profile.name}

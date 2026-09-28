@@ -43,7 +43,7 @@ function ProfilePanel({ mobile = false }: { mobile?: boolean }) {
 
 export default function Intro() {
   return (
-    <Section id="about" className="pt-8 pb-16 sm:pt-14 sm:pb-32">
+    <Section id="intro" className="pt-8 pb-16 sm:pt-14 sm:pb-32">
       <div className="lg:hidden">
         <ProfilePanel mobile />
       </div>
