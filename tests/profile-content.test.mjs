@@ -122,6 +122,28 @@ test("Toolkit is a four-column, point-form PM capability scan", () => {
   assert.doesNotMatch(toolkit, /capabilities|dailyDrivers/);
 });
 
+test("Overview opens with a memorable product story and a compact mobile portrait", () => {
+  const intro = readFileSync("app/components/sections/intro.tsx", "utf8");
+
+  for (const expected of [
+    "Systems title. Product instincts.",
+    "My title says systems.",
+    "My brain keeps asking product questions.",
+    "I’m not changing careers—I’m following the questions I’m already solving.",
+    "Who needs this?",
+    "What proves it?",
+    "Did it work?",
+    "Why?",
+    "See the decisions",
+    "Meet the human",
+    "h-16 w-16",
+  ]) {
+    assert.match(intro, new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.doesNotMatch(intro, /-mx-5 -mt-10 mb-8 aspect-\[4\/5\]/);
+});
+
 test("homepage keeps Overview, About, and a recruiter-ready Experience timeline distinct", () => {
   const home = readFileSync("app/page.tsx", "utf8");
   const navigation = readFileSync("app/components/nav-items.tsx", "utf8");
