@@ -206,6 +206,14 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
   assert.match(experience, /bg-surface/);
 });
 
+test("desktop sidebar keeps navigation spacing stable across viewport heights", () => {
+  const sidebar = readFileSync("app/components/sidebar.tsx", "utf8");
+
+  assert.doesNotMatch(sidebar, /h-\[100dvh\].*justify-between/);
+  assert.match(sidebar, /<div className="mt-24">\s*<NavList \/>/);
+  assert.match(sidebar, /<div className="mt-auto space-y-4">/);
+});
+
 test("YouTube Search teardown is original, transparent, and decision-complete", () => {
   const data = readFileSync("app/lib/data.ts", "utf8");
 
