@@ -9,6 +9,7 @@ As a recruiter or future teammate, I can choose a familiar situation and quickly
 | Guarantee | Evidence | Result |
 | --- | --- | --- |
 | Four accessible scenarios and their responses are present | `tests/profile-content.test.mjs` | RED at `90b6c5d`; GREEN 15/15 |
+| Scenario language stays plain, conversational, and distinct | `tests/profile-content.test.mjs` | RED at `2a8be44`; GREEN 15/15 |
 | Every scenario updates the visible response | Local browser interaction check | PASS — 4/4 |
 | TypeScript remains valid | `npm run lint` | PASS |
 | GitHub Pages static output builds | `npm run build` | PASS — 12 pages |

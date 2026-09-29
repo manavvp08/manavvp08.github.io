@@ -8,42 +8,42 @@ const scenarios = [
   {
     id: "messy",
     number: "01",
-    label: "The problem is messy",
+    label: "Nobody agrees on the problem",
     dot: "bg-sky-400",
     wash: "from-sky-500/10",
-    title: "I slow down the rush to solutions.",
-    body: "I ask everyone to explain the problem without proposing a fix. The overlap usually reveals what actually needs solving.",
-    next: "Write the problem in one sentence, name who feels it, and agree on what better looks like.",
+    title: "First, I make sure we’re solving the same problem.",
+    body: "When a conversation fills up with solutions, I pause and ask everyone to describe the problem in plain language. The common thread usually tells us where to start.",
+    next: "Leave with one problem statement, the person we’re helping, and a shared picture of better.",
   },
   {
     id: "data",
     number: "02",
-    label: "The data disagrees",
+    label: "The numbers don’t match",
     dot: "bg-violet-400",
     wash: "from-violet-500/10",
-    title: "I check definitions before choosing sides.",
-    body: "Two dashboards can be correct and still answer different questions. I trace the metric, timeframe, and segment before debating the conclusion.",
-    next: "Create one shared definition, surface the assumptions, and make the decision visible.",
+    title: "Before debating the numbers, I check what they mean.",
+    body: "Different filters, time periods, or definitions can make two honest dashboards disagree. I’d rather fix the question than argue over the answer.",
+    next: "Agree on the metric, write down the assumptions, and use the same scoreboard.",
   },
   {
     id: "team",
     number: "03",
-    label: "The team is stuck",
+    label: "The conversation is stuck",
     dot: "bg-emerald-400",
     wash: "from-emerald-500/10",
-    title: "I turn debate into a decision.",
-    body: "I separate what we know, what we assume, and what we can learn cheaply. That usually gives the room somewhere useful to move.",
-    next: "Pick the smallest test, give it an owner, and agree on when we will revisit the call.",
+    title: "When the room goes in circles, I give it a next step.",
+    body: "I sort the conversation into what we know, what we’re assuming, and what we still need to learn. Opinions become much easier to work with when we can test them.",
+    next: "Choose the smallest useful test, name an owner, and set a date to decide.",
   },
   {
     id: "offline",
     number: "04",
-    label: "The laptop is closed",
+    label: "I’m off the clock",
     dot: "bg-amber-400",
     wash: "from-amber-500/10",
-    title: "The laptop closes. The product brain does not.",
-    body: "Music on, too many tabs open, and probably noticing the checkout flow that could have taken two fewer clicks.",
-    next: "Take a screenshot, make a mental note, and promise myself I will not turn it into a teardown. No guarantees.",
+    title: "Work ends. Curiosity usually misses the memo.",
+    body: "Music on, too many tabs open, and occasionally wondering why a checkout needed six screens when three would do.",
+    next: "Take a screenshot, write one note, and try very hard not to turn it into a full teardown. Results vary.",
   },
 ] as const;
 
@@ -65,8 +65,8 @@ export default function About() {
         </Reveal>
         <Reveal delay={80}>
           <p className="max-w-md text-[15px] leading-relaxed text-muted">
-            Pick a situation. I’ll show you how I think, what I do next, and the
-            occasional thing that follows me home.
+            Pick a situation. Here’s what you’d actually see me do—no buzzwords,
+            no personality test.
           </p>
         </Reveal>
       </div>
@@ -154,8 +154,8 @@ export default function About() {
               Same person. Different room.
             </div>
             <p className="mt-1 text-[13px] leading-relaxed text-muted">
-              Curious enough to dig. Practical enough to move. Human enough to
-              laugh when the first idea is terrible.
+              Curious enough to ask. Practical enough to move. Relaxed enough to
+              admit when the first idea is bad.
             </p>
           </div>
           <div aria-hidden="true" className="flex gap-2">
