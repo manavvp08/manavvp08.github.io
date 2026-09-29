@@ -170,16 +170,25 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
   assert.match(intro, /<Section id=["']intro["']/);
   assert.match(about, /<Section id=["']about["']/);
   for (const expected of [
-    "The parts that don’t fit neatly on a résumé.",
-    "I can’t unsee",
-    "A hill I’ll defend",
-    "The mildly annoying part",
-    "Off duty, allegedly",
-    "Clarity is a form of kindness.",
-    "Music on. Too many tabs open.",
-    "the messy version",
-    "structure without the theatre",
-    "a decision and an owner",
+    '"use client"',
+    "useState",
+    "Put me in the room.",
+    "Pick a situation. I’ll show you how I think",
+    "The problem is messy",
+    "The data disagrees",
+    "The team is stuck",
+    "The laptop is closed",
+    "I slow down the rush to solutions.",
+    "I check definitions before choosing sides.",
+    "I turn debate into a decision.",
+    "The laptop closes. The product brain does not.",
+    "Same person. Different room.",
+    "aria-pressed",
+    'aria-live="polite"',
+    "bg-sky-400",
+    "bg-violet-400",
+    "bg-emerald-400",
+    "bg-amber-400",
   ]) {
     assert.match(
       about,
@@ -188,7 +197,7 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
   }
   assert.doesNotMatch(
     about,
-    /Certifications & languages|SQL Intermediate|English|Product direction|Deloitte|Mumbai/,
+    /Certifications & languages|SQL Intermediate|English|Product direction|Deloitte|Mumbai|A hill I’ll defend|The mildly annoying part|structure without the theatre/,
   );
   assert.doesNotMatch(intro, /GithubHeatmap|Lately on GitHub/);
   assert.ok(
