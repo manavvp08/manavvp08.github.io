@@ -173,16 +173,17 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
     '"use client"',
     "useState",
     "Put me in the room.",
-    "Pick a situation. I’ll show you how I think",
-    "The problem is messy",
-    "The data disagrees",
-    "The team is stuck",
-    "The laptop is closed",
-    "I slow down the rush to solutions.",
-    "I check definitions before choosing sides.",
-    "I turn debate into a decision.",
-    "The laptop closes. The product brain does not.",
+    "Here’s what you’d actually see me do",
+    "Nobody agrees on the problem",
+    "The numbers don’t match",
+    "The conversation is stuck",
+    "I’m off the clock",
+    "First, I make sure we’re solving the same problem.",
+    "Before debating the numbers, I check what they mean.",
+    "When the room goes in circles, I give it a next step.",
+    "Work ends. Curiosity usually misses the memo.",
     "Same person. Different room.",
+    "Curious enough to ask. Practical enough to move.",
     "aria-pressed",
     'aria-live="polite"',
     "bg-sky-400",
@@ -197,7 +198,7 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
   }
   assert.doesNotMatch(
     about,
-    /Certifications & languages|SQL Intermediate|English|Product direction|Deloitte|Mumbai|A hill I’ll defend|The mildly annoying part|structure without the theatre/,
+    /Certifications & languages|SQL Intermediate|English|Product direction|Deloitte|Mumbai|I slow down the rush to solutions|I turn debate into a decision/,
   );
   assert.doesNotMatch(intro, /GithubHeatmap|Lately on GitHub/);
   assert.ok(
