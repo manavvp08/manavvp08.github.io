@@ -169,7 +169,27 @@ test("homepage keeps Overview, About, and a recruiter-ready Experience timeline 
   );
   assert.match(intro, /<Section id=["']intro["']/);
   assert.match(about, /<Section id=["']about["']/);
-  assert.match(about, /Find the friction\. Prove the case\. Ship the fix\./);
+  for (const expected of [
+    "The parts that don’t fit neatly on a résumé.",
+    "I can’t unsee",
+    "A hill I’ll defend",
+    "The mildly annoying part",
+    "Off duty, allegedly",
+    "Clarity is a form of kindness.",
+    "Music on. Too many tabs open.",
+    "the messy version",
+    "structure without the theatre",
+    "a decision and an owner",
+  ]) {
+    assert.match(
+      about,
+      new RegExp(expected.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")),
+    );
+  }
+  assert.doesNotMatch(
+    about,
+    /Certifications & languages|SQL Intermediate|English|Product direction|Deloitte|Mumbai/,
+  );
   assert.doesNotMatch(intro, /GithubHeatmap|Lately on GitHub/);
   assert.ok(
     home.indexOf("<Toolkit />") < home.indexOf("<Experience />"),
