@@ -104,7 +104,7 @@ export default function Sidebar() {
   const go = useGoToSection();
   return (
     <>
-      <aside className="sticky top-0 hidden h-[100dvh] flex-col justify-between border-r border-border px-8 py-8 lg:flex">
+      <aside className="sticky top-0 hidden h-[100dvh] flex-col overflow-y-auto border-r border-border px-8 py-8 lg:flex">
         <div>
           <button
             onClick={() => go("intro")}
@@ -136,9 +136,11 @@ export default function Sidebar() {
           </button>
         </div>
 
-        <NavList />
+        <div className="mt-24">
+          <NavList />
+        </div>
 
-        <div className="space-y-4">
+        <div className="mt-auto space-y-4">
           <div className="flex items-center justify-between gap-3">
             <span className="text-[12.5px] leading-relaxed text-faint">
               Open to product roles.
